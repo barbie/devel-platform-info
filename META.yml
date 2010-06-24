@@ -1,0 +1,45 @@
+--- #YAML:1.0
+name:                     Devel-Platform-Info
+version:                  0.01
+abstract:                 Parse a CPAN Testers NNTP article
+author:
+  - Barbie (BARBIE) <barbie@cpan.org>
+  - Brian McCauley (NOBULL) <nobull67@gmail.com>
+  - Colin Newell http://colinnewell.wordpress.com/
+  - Jon 'JJ' Allen (JONALLEN) <jj@jonallen.info>
+
+license:                  artistic_2
+distribution_type:        module
+installdirs:              site
+
+recommends:
+  IO::File:                         0
+  Test::More:                       0.70
+  Test::Pod:                        1.00
+  Test::Pod::Coverage:              0.08
+  Test::CPAN::Meta:                 0.12
+build_requires:
+  IO::File:                         0
+  Test::More:                       0.01
+
+provides:
+  Devel::Platform::Info:
+    file:     lib/Devel/Platform/Info.pm
+    version:  0.01
+  Devel::Platform::Info::Linux:
+    file:     lib/Devel/Platform/Info/Linux.pm
+    version:  0.01
+
+no_index:
+  directory:
+    - t
+    - examples
+
+resources:
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
+  repository: git://github.com/barbie/devel-platform-info.git
+
+meta-spec:
+   version:   1.4
+   url:       http://module-build.sourceforge.net/META-spec-v1.4.html
+generated_by: Hand 1.0
