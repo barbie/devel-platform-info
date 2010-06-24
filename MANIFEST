@@ -5,6 +5,7 @@ lib/Devel/Platform/Info/Linux.pm
 Makefile.PL
 MANIFEST
 META.yml
+README
 t/01base.t
 t/90podtest.t
 t/91podcover.t
