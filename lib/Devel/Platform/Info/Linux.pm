@@ -8,6 +8,17 @@ $VERSION = '0.01';
 
 #----------------------------------------------------------------------------
 
+my %commands = (
+    '_uname'    => 'uname -a',
+    '_lsb'      => 'lsb_release -a',
+    'kname'     => 'uname -s',
+    'kvers'     => 'uname -r',
+    'osname'    => 'uname -o',
+    'archname'  => 'uname -m',
+);
+
+#----------------------------------------------------------------------------
+
 sub new {
     my ($class) = @_;
     my $self = {};
@@ -18,21 +29,18 @@ sub new {
 
 sub get_info {
     my $self  = shift;
-    my $uname = `uname -a`;
-    my $lsb   = `lsb_release -a`;
 
-    $self->{info}{source} = "uname -a\n$uname\nlsb_release -a\n$lsb\n";
-    $self->{info}{kname} = `uname -s`;
-    $self->{info}{kvers} = `uname -r`;
-    $self->{info}{osname}   = `uname -o`;
-    $self->{info}{archname} = `uname -m`;
+    for my $cmd (keys %commands) {
+        $self->{info}{$cmd} = `$commands{$cmd}`;
+        $self->{info}{source} .= "$commands{$cmd}\n$self->{info}{$cmd}\n";
+        $self->{info}{$cmd} =~ s/\s+$//s;
+    }
 
-    $self->{info}{$_} =~ s/\s+$//s  for(qw(kname kvers osname archname));
-
+    $self->{info}{osflag}       = $^O;
     $self->{info}{kernel}       = lc($self->{info}{kname}) . '-' . $self->{info}{kvers};
-    ($self->{info}{oslabel})    = $lsb =~ /Distributor ID:\s*(.*?)\n/s;
-    ($self->{info}{osvers})     = $lsb =~ /Release:\s*(.*?)\n/s;
-    ($self->{info}{codename})   = $lsb =~ /Codename:\s*(.*?)\n/s;
+    ($self->{info}{oslabel})    = $self->{info}{'_lsb'} =~ /Distributor ID:\s*(.*?)\n/s;
+    ($self->{info}{osvers})     = $self->{info}{'_lsb'} =~ /Release:\s*(.*?)\n/s;
+    ($self->{info}{codename})   = $self->{info}{'_lsb'} =~ /Codename:\s*(.*?)\n/s;
 
     $self->{info}{is32bit}      = $self->{info}{archname} !~ /_(64)$/ ? 1 : 0;
     $self->{info}{is64bit}      = $self->{info}{archname} =~ /_(64)$/ ? 1 : 0;
@@ -79,6 +87,22 @@ Simply constructs the object.
 =item * get_info
 
 Returns a hash reference to the Linux platform metadata.
+
+Returns the following keys:
+
+  source
+  archname
+  kernel
+  osname
+  osvers
+  oslabel
+  codename
+  is32bit
+  is64bit
+  osflag
+
+  kname
+  kvers
 
 =back
 

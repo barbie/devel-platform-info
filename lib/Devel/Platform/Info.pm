@@ -9,7 +9,50 @@ $VERSION = '0.01';
 #----------------------------------------------------------------------------
 
 my %map = (
-    'linux' => 'Linux',
+    # Unix (and like) family OSes
+    'linux'     => 'Linux',
+    'aix'       => 'Linux',
+    'bsdos'     => 'Linux',
+    'dgux'      => 'Linux',
+    'dynixptx'  => 'Linux',
+    'freebsd'   => 'Linux',
+    'hpux'      => 'Linux',
+    'irix'      => 'Linux',
+    'openbsd'   => 'Linux',
+    'dec_osf'   => 'Linux',
+    'svr4'      => 'Linux',
+    'unicos'    => 'Linux',
+    'unicosmk'  => 'Linux',
+    'solaris'   => 'Linux',
+    'sunos'     => 'Linux',
+    'netbsd'    => 'Linux',
+    'ultrix'    => 'Linux',
+    'sco_sv'    => 'SCO',
+    'sco3'      => 'SCO',
+    'sco'       => 'SCO',
+
+    # Windows family OSes
+    'dos'       => 'Win32',
+    'os2'       => 'Win32',
+    'mswin32'   => 'Win32',
+    'netware'   => 'Win32',
+
+    # Mac family OSes
+    'macos'     => 'Mac',
+    'rhapsody'  => 'Mac',
+    'darwin'    => 'Mac',
+
+    # Other OSes
+    'vms'       => 'Linux',
+    'vos'       => 'Linux',
+    'os390'     => 'Linux',
+    'vmesa'     => 'Linux',
+    'riscos'    => 'Linux',
+    'amigaos'   => 'Linux',
+    'beos'      => 'Linux',
+    'machten'   => 'Linux',
+    'mpeix'     => 'Linux',
+
 );
 
 #----------------------------------------------------------------------------
@@ -25,7 +68,9 @@ sub get_info {
     my $self  = shift;
     my $data;
 
-    my $driver = 'Devel::Platform::Info::' . $map{ lc $^O };
+    my $plugin = $map{ lc $^O } || 'Linux';
+
+    my $driver = 'Devel::Platform::Info::' . $plugin;
     my $require = $driver;
     $require =~ s!::!/!g;
 
@@ -58,6 +103,14 @@ Devel::Platform::Info - Retrieve common platform metadata
 This module is a wrapper to the drivers which can determine platform metadata
 regarding the currently running operating system.
 
+The intention of this distribution is to provide key identifying components
+regarding the platform currently being used, for the CPAN Testers test 
+reports. Currently the reports do not often contain enough information to help
+authors understand specific failures, where the platform may be a factor.
+
+However, it is hoped that this distribution will find more uses far beyond the
+usage for CPAN Testers.
+
 =head1 INTERFACE
 
 =head2 The Constructor
@@ -77,6 +130,22 @@ Simply constructs the object.
 =item * get_info
 
 Returns a hash reference to the platform metadata.
+
+Returns at least the following keys:
+
+  source
+  archname
+  kernel
+  osname
+  osvers
+  oslabel
+  codename
+  is32bit
+  is64bit
+  osflag
+
+Note that the 'source' key returns the commands and output used to obtain the 
+metadata for possible future use.
 
 =back
 
