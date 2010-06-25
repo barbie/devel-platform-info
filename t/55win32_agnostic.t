@@ -4,7 +4,7 @@
 
 use strict;
 
-use Test::More tests => 15;
+use Test::More tests => 16;
 use Try::Tiny;
 
 use Devel::Platform::Info::Win32;
@@ -36,9 +36,11 @@ $os = $win32->InterpretWin32Info('', 6, 1, 3, 1, 2, 1, 1, 2)->{osLabel};
 is($os, 'Windows Server 2008 R2');
 $os = $win32->InterpretWin32Info('', 5, 0, 3, 1, 2, 1, 1, 1)->{osLabel};
 is($os, 'Windows 2000');
-$os = $win32->InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
+$os = $win32->InterpretWin32Info('', 5, 1, 3, 1, 2, 1, 1, 1)->{osLabel};
+is($os, 'Windows XP');
 TODO: {
 		local $TODO = 'These require me to add calls to other sources of information in order to figure them out.';
+		$os = $win32->InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
 		is($os, 'Windows Server 2003');
 		$os = $win32->InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
 		is($os, 'Windows XP Pro 64');
