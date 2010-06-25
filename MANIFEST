@@ -2,6 +2,7 @@ Changes
 examples/info.pl
 lib/Devel/Platform/Info.pm
 lib/Devel/Platform/Info/Linux.pm
+lib/Devel/Platform/Info/SCO.pm
 Makefile.PL
 MANIFEST
 META.yml
