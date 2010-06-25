@@ -38,9 +38,9 @@ sub get_info {
 
     $self->{info}{osflag}       = $^O;
     $self->{info}{kernel}       = lc($self->{info}{kname}) . '-' . $self->{info}{kvers};
-    ($self->{info}{oslabel})    = $self->{info}{'_lsb'} =~ /Distributor ID:\s*(.*?)\n/s;
-    ($self->{info}{osvers})     = $self->{info}{'_lsb'} =~ /Release:\s*(.*?)\n/s;
-    ($self->{info}{codename})   = $self->{info}{'_lsb'} =~ /Codename:\s*(.*?)\n/s;
+    ($self->{info}{oslabel})    = $self->{info}{'_lsb'} =~ /Distributor ID:\s*(.*?)\n/si;
+    ($self->{info}{osvers})     = $self->{info}{'_lsb'} =~ /Release:\s*(.*?)\n/si;
+    ($self->{info}{codename})   = $self->{info}{'_lsb'} =~ /Codename:\s*(.*)\n?/si;
 
     $self->{info}{is32bit}      = $self->{info}{archname} !~ /_(64)$/ ? 1 : 0;
     $self->{info}{is64bit}      = $self->{info}{archname} =~ /_(64)$/ ? 1 : 0;
