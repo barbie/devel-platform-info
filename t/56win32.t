@@ -16,9 +16,8 @@ SKIP: {
 
 	my $win32 = Devel::Platform::Info::Win32->new();
 	my $info = $win32->get_info();
-# this is fairly obviously broken.
-# it'll do as a place holder until I come up with
-# something better.
-	is($info->{label}, 'Windows 7');
+	# this doesn't really check whether we got a sensible result
+	# more that it didn't crash.
+	is($info->{osflag}, $^O);
 
 }
