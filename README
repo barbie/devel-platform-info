@@ -1,39 +1,68 @@
-=head1 NAME
+Devel::Platform::Info(3)                              Devel::Platform::Info(3)
 
-Devel::Platform::Info - Retrieve common platform metadata
 
-=head1 SYNOPSIS
 
-  use Devel::Platform::Info;
-  my $info = Devel::Platform::Info->new();
-  my $data = $info->get_info();
+NAME
+       Devel::Platform::Info - Retrieve common platform metadata
 
-=head1 DESCRIPTION
+SYNOPSIS
+         use Devel::Platform::Info;
+         my $info = Devel::Platform::Info->new();
+         my $data = $info->get_info();
 
-This module is a wrapper to the drivers which can determine platform metadata
-regarding the currently running operating system.
+DESCRIPTION
+       This module is a wrapper to the drivers which can determine platform
+       metadata regarding the currently running operating system.
 
-=head1 BUGS, PATCHES & FIXES
+INTERFACE
+       The Constructor
 
-There are no known bugs at the time of this release. However, if you spot a
-bug or are experiencing difficulties, that is not explained within the POD
-documentation, please send bug reports and patches to the RT Queue (see below).
 
-RT Queue - http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
+       * new
+           Simply constructs the object.
 
-=head1 AUTHORS
+       Methods
 
-  Barbie (BARBIE) <barbie@cpan.org>
-  Brian McCauley (NOBULL) <nobull67@gmail.com>
-  Colin Newell http://colinnewell.wordpress.com/
-  Jon 'JJ' Allen (JONALLEN) <jj@jonallen.info>
 
-=head1 COPYRIGHT & LICENSE
+       * get_info
+           Returns a hash reference to the platform metadata.
 
-  Copyright (C) 2010 Birmingham Perl Mongers
+           Returns at least the following keys:
 
-  This module is free software; you can redistribute it and/or
-  modify it under the Artistic License 2.0.
+             source
+             archname
+             kernel
+             osname
+             osvers
+             oslabel
+             codename
+             is32bit
+             is64bit
 
-=cut
+           Note that the 'source' key returns the commands and output used
+           to obtain the metadata for possible future use.
 
+BUGS, PATCHES & FIXES
+       There are no known bugs at the time of this release. However, if you
+       spot a bug or are experiencing difficulties, that is not explained
+       within the POD documentation, please send bug reports and patches to
+       the RT Queue (see below).
+
+       RT Queue - http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Plat-
+       form-Info
+
+AUTHORS
+         Barbie (BARBIE) <barbie@cpan.org>
+         Brian McCauley (NOBULL) <nobull67@gmail.com>
+         Colin Newell http://colinnewell.wordpress.com/
+         Jon ’JJ’ Allen (JONALLEN) <jj@jonallen.info>
+
+COPYRIGHT & LICENSE
+         Copyright (C) 2010 Birmingham Perl Mongers
+
+         This module is free software; you can redistribute it and/or
+         modify it under the Artistic License 2.0.
+
+
+
+perl v5.8.8                       2010-06-25          Devel::Platform::Info(3)
