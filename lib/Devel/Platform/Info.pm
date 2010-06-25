@@ -36,6 +36,7 @@ my %map = (
     'os2'       => 'Win32',
     'mswin32'   => 'Win32',
     'netware'   => 'Win32',
+    'cygwin'   => 'Win32',
 
     # Mac family OSes
     'macos'     => 'Mac',
