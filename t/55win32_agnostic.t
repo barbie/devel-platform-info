@@ -5,7 +5,6 @@
 use strict;
 
 use Test::More tests => 22;
-use Try::Tiny;
 
 use Devel::Platform::Info::Win32;
 
