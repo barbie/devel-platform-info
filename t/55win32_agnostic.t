@@ -55,7 +55,7 @@ is($os, 'Windows XP');
 
 # FIXME: is blank the correct result?
 $os = $win32->InterpretWin32Info('', 0, 0, 0, 0, 0, 0, 0, 0)->{osLabel};
-is($os, '');
+is($os, 'Unrecognised - please file an RT case');
 
 # FIXME: remove these once we can determine the O/S more reliably
 $os = $win32->InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
