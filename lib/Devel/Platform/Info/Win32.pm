@@ -18,19 +18,19 @@ sub new {
 }
 
 sub get_info {
-    my $self  = shift;
+	my $self  = shift;
 
-    $self->{info}{osflag}       = $^O;
+	$self->{info}{osflag}       = $^O;
 	my $inf = $self->GetArchName();
 	$self->{info}{oslabel} = $inf->{osLabel};
 	$self->{info}{osvers} = $inf->{version};
 	$self->{info}{archname} = $inf->{archname};
-    $self->{info}{is32bit} = $self->{info}{archname} !~ /64/ ? 1 : 0;
-    $self->{info}{is64bit} = $self->{info}{archname} =~ /64/ ? 1 : 0;
+	$self->{info}{is32bit} = $self->{info}{archname} !~ /64/ ? 1 : 0;
+	$self->{info}{is64bit} = $self->{info}{archname} =~ /64/ ? 1 : 0;
 	$self->{info}{source} = $inf->{source};
-	
 
-    return $self->{info};
+
+	return $self->{info};
 }
 
 sub GetArchName
