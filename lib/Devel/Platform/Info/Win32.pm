@@ -19,7 +19,7 @@ sub get_info {
 	my $self  = shift;
 
 	$self->{info}{osflag}       = $^O;
-	my $inf = $self->GetArchName();
+	my $inf = $self->_GetArchName();
 	$self->{info}{oslabel} = $inf->{osLabel};
 	$self->{info}{osvers} = $inf->{version};
 	$self->{info}{archname} = $inf->{archname};
@@ -27,21 +27,20 @@ sub get_info {
 	$self->{info}{is64bit} = $self->{info}{archname} =~ /64/ ? 1 : 0;
 	$self->{info}{source} = $inf->{source};
 
-
 	return $self->{info};
 }
 
-sub GetArchName
+sub _GetArchName
 {
 	my $self = shift;
 	my @uname = POSIX::uname();
 	my @versions = Win32::GetOSVersion();
-	my $info = $self->InterpretWin32Info(@versions);
-	$self->AddPOSIXInfo($info, \@uname);
+	my $info = $self->_InterpretWin32Info(@versions);
+	$self->_AddPOSIXInfo($info, \@uname);
 	return $info;
 }
 
-sub AddPOSIXInfo
+sub _AddPOSIXInfo
 {
 	my $self = shift;
 	my $info = shift;
@@ -54,7 +53,7 @@ sub AddPOSIXInfo
 	};
 }
 
-sub InterpretWin32Info
+sub _InterpretWin32Info
 {
 	my $self = shift;
 	my @versionInfo = @_;
