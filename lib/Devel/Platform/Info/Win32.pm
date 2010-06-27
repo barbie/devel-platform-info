@@ -4,6 +4,7 @@ use strict;
 use warnings;
 # FIXME: should probably remove this dependency
 use Modern::Perl;
+use POSIX;
 
 use vars qw($VERSION);
 $VERSION = '0.01';
@@ -21,7 +22,13 @@ sub get_info {
 
     $self->{info}{osflag}       = $^O;
 	my $inf = $self->GetArchName();
-	$self->{info}{label} = $inf->{osLabel};
+	$self->{info}{oslabel} = $inf->{osLabel};
+	$self->{info}{osvers} = $inf->{version};
+	$self->{info}{archname} = $inf->{archname};
+    $self->{info}{is32bit} = $self->{info}{archname} !~ /64/ ? 1 : 0;
+    $self->{info}{is64bit} = $self->{info}{archname} =~ /64/ ? 1 : 0;
+	$self->{info}{source} = $inf->{source};
+	
 
     return $self->{info};
 }
@@ -29,7 +36,24 @@ sub get_info {
 sub GetArchName
 {
 	my $self = shift;
-	return $self->InterpretWin32Info(Win32::GetOSVersion());
+	my @uname = POSIX::uname();
+	my @versions = Win32::GetOSVersion();
+	my $info = $self->InterpretWin32Info(@versions);
+	$self->AddPOSIXInfo($info, \@uname);
+	return $info;
+}
+
+sub AddPOSIXInfo
+{
+	my $self = shift;
+	my $info = shift;
+	my $uname = shift;
+	my $arch = $uname->[4];
+	$info->{archname} = $arch;
+	$info->{source} = {
+		uname => $uname,
+		GetOSVersion => $info->{source},
+	};
 }
 
 sub InterpretWin32Info

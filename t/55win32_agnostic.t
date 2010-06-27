@@ -4,7 +4,7 @@
 
 use strict;
 
-use Test::More tests => 20;
+use Test::More tests => 22;
 use Try::Tiny;
 
 use Devel::Platform::Info::Win32;
@@ -17,6 +17,20 @@ is($info->{osName}, 'Windows');
 is($info->{osLabel}, 'Windows 7');
 is_deeply($info->{source}, \@args);
 
+my @uname = (
+	'Windows NT',
+	'Colin-PC',
+	'6.1',
+	'Build 7600',
+	'amd64'
+);
+$win32->AddPOSIXInfo($info, \@uname);
+is_deeply($info->{source}, { GetOSVersion => \@args, uname => \@uname });
+is($info->{archname}, 'amd64');
+
+# FIXME: divide into real numbers and fake numbers
+# just so I can be more confident about the likelyhood
+# of getting the version interpretaion correct.
 my $os;
 $os = $win32->InterpretWin32Info('', 4, 0, 3, 1, 2, 1, 1, 1)->{osLabel};
 is($os, 'Windows 95');
