@@ -53,7 +53,6 @@ is($os, 'Windows 2000');
 $os = $win32->InterpretWin32Info('', 5, 1, 3, 1, 2, 1, 1, 1)->{osLabel};
 is($os, 'Windows XP');
 
-# FIXME: is blank the correct result?
 $os = $win32->InterpretWin32Info('', 0, 0, 0, 0, 0, 0, 0, 0)->{osLabel};
 is($os, 'Unrecognised - please file an RT case');
 
