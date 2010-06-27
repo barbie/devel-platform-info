@@ -61,7 +61,7 @@ sub InterpretWin32Info
 	my $self = shift;
 	my @versionInfo = @_;
 	my ($string, $major, $minor, $build, $id, $spmajor, $spminor, $suitemask, $producttype, @extra)  = @versionInfo;
-	my ($arch, $osname, $oslabel, $codename, $version, $source, $iswow64);
+	my ($osname, $oslabel, $version, $source);
 	my %info;
 	my $NTWORKSTATION = 1;
 	given($major)
@@ -153,14 +153,12 @@ sub InterpretWin32Info
 		default
 		{
 			$osname = '';
-			$codename = '';
 		}
 	}
 	my $info = 
 	{
 		osName => 'Windows',
 		osLabel => $osname,
-		codeName => $codename,
 		version => "$major.$minor.$build.$id",
 		source => \@versionInfo,
 	};
