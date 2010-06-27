@@ -51,7 +51,9 @@ sub InterpretWin32Info
 					# server 2003, win home server
 					# server 2003 R2
 					# XP Pro 64
-					#die "Please implement";
+					# I need more info from GetSystemMetrics and architecture info to
+					# be sure about the exact details.
+					$osname = 'Windows Server 2003 / XP 64';
 				}
 				when(1)
 				{
