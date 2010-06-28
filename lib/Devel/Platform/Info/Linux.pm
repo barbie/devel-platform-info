@@ -92,15 +92,15 @@ Returns the following keys:
 
   source
   archname
-  kernel
   osname
   osvers
   oslabel
-  codename
   is32bit
   is64bit
   osflag
 
+  codename
+  kernel
   kname
   kvers
 
