@@ -4,7 +4,7 @@
 
 use strict;
 
-use Test::More tests => 21;
+use Test::More tests => 23;
 
 use Devel::Platform::Info::Win32;
 
@@ -70,4 +70,18 @@ TODO: {
 		$os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
 		is($os, 'Windows Server 2003 R2');
 }
+
+# now check the wow64 test.
+my $previous = $ENV{'PROCESSOR_ARCHITEW6432'};
+$ENV{'PROCESSOR_ARCHITEW6432'} = 'AMD64';
+$win32->_AddPOSIXInfo($info, \@uname);
+is($info->{wow64}, 1, "Testing WOW value");
+$ENV{'PROCESSOR_ARCHITEW6432'} = undef;
+$win32->_AddPOSIXInfo($info, \@uname);
+is($info->{wow64}, 0, "Testing WOW value");
+
+# now restore it as it was.
+$ENV{'PROCESSOR_ARCHITEW6432'} = $previous;
+
+
 

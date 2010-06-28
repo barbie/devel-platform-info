@@ -26,6 +26,7 @@ sub get_info {
 	$self->{info}{is32bit} = $self->{info}{archname} !~ /64/ ? 1 : 0;
 	$self->{info}{is64bit} = $self->{info}{archname} =~ /64/ ? 1 : 0;
 	$self->{info}{source} = $inf->{source};
+	$self->{info}{wow64} = $inf->{wow64};
 
 	return $self->{info};
 }
@@ -51,6 +52,16 @@ sub _AddPOSIXInfo
 		uname => $uname,
 		GetOSVersion => $info->{source},
 	};
+	# used the tip from David Wang's blog,
+	# http://blogs.msdn.com/b/david.wang/archive/2006/03/26/howto-detect-process-bitness.aspx
+	if($ENV{'PROCESSOR_ARCHITEW6432'})
+	{
+		$info->{wow64} = 1;
+	}
+	else
+	{
+		$info->{wow64} = 0;
+	}
 }
 
 sub _InterpretWin32Info
@@ -169,7 +180,9 @@ Returns the following keys:
   is32bit
   is64bit
   osflag
+  wow64
 
+On a 64 bit Windows if you are running 32 bit perl the archname is likely to indicate x86.  The wow64 variable will tell you if you are in fact running on x64 Windows.
 
 =back
 
@@ -177,7 +190,7 @@ Returns the following keys:
 
 The module cannot accurately tell the difference between the Windows Server 2003 and Windows Server 2003 R2.
 
-It would be useful if we could tell is we are runing WOW64 but we don't do that yet either.
+The wow64 variable indicates whether or not you are running a 32 bit perl on a 64 bit windows.  It uses the environment variable PROCESSOR_ARCHITEW6432 rather than the IsWow64Process call because it's simpler.
 
 If you spot a
 bug or are experiencing difficulties, that is not explained within the POD
