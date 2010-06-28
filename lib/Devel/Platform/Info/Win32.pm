@@ -61,14 +61,16 @@ sub _InterpretWin32Info
 	my ($osname, $oslabel, $version, $source);
 	my %info;
 	my $NTWORKSTATION = 1;
-	if($major == 5 && $minor == 2)
+	if($major == 5 && $minor == 2 && $producttype == $NTWORKSTATION)
+	{
+		$osname = 'Windows XP Pro 64';
+	} elsif($major == 5 && $minor == 2 && $producttype != $NTWORKSTATION)
 	{
 		# server 2003, win home server
 		# server 2003 R2
-		# XP Pro 64
-		# I need more info from GetSystemMetrics and architecture info to
+		# I need more info from GetSystemMetrics 
 		# be sure about the exact details.
-		$osname = 'Windows Server 2003 / XP 64';
+		$osname = 'Windows Server 2003';
 	} elsif($major == 5 && $minor == 1)
 	{
 		$osname = 'Windows XP';
@@ -173,7 +175,7 @@ Returns the following keys:
 
 =head1 BUGS, PATCHES & FIXES
 
-The module cannot accurately tell the difference between the Windows Server 2003 and Windows XP 64 or Windows Server 2003 R2.
+The module cannot accurately tell the difference between the Windows Server 2003 and Windows Server 2003 R2.
 
 It would be useful if we could tell is we are runing WOW64 but we don't do that yet either.
 

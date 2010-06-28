@@ -4,7 +4,7 @@
 
 use strict;
 
-use Test::More tests => 22;
+use Test::More tests => 21;
 
 use Devel::Platform::Info::Win32;
 
@@ -57,19 +57,17 @@ is($os, 'Unrecognised - please file an RT case');
 
 # FIXME: remove these once we can determine the O/S more reliably
 $os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
-is($os, 'Windows Server 2003 / XP 64');
+is($os, 'Windows Server 2003');
 $os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
-is($os, 'Windows Server 2003 / XP 64');
+is($os, 'Windows Server 2003');
 $os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 1)->{osLabel};
-is($os, 'Windows Server 2003 / XP 64');
+is($os, 'Windows XP Pro 64');
 
 TODO: {
 		local $TODO = 'These require me to add calls to other sources of information in order to figure them out.';
 		$os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
 		is($os, 'Windows Server 2003');
 		$os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 2)->{osLabel};
-		is($os, 'Windows XP Pro 64');
-		$os = $win32->_InterpretWin32Info('', 5, 2, 3790, 2, 2, 0, 272, 1)->{osLabel};
 		is($os, 'Windows Server 2003 R2');
 }
 
