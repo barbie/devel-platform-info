@@ -77,8 +77,8 @@ sub get_info {
 
     eval {
         require "$require.pm";
-        my $info = $driver->new();
-        $data = $info->get_info();
+        $self->{driver} = $driver->new();
+        $data = $self->{driver}->get_info();
     };
 
     return  if($@);
