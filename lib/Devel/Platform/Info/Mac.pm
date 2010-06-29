@@ -17,21 +17,20 @@ sub new {
     return $self;
 }
 
-
 #-------------------------------------------------------------------------------
 
 sub get_info {
     my $self = shift;
     $self->{info}{osname} = 'Mac';
     
-    my $uname_s = $self->command('uname -s');
+    my $uname_s = $self->_command('uname -s');
     if ($uname_s =~ /Darwin/i) {
         $self->{info}{oslabel} = 'OS X';
         
-        my $productversion = $self->command('sw_vers -productVersion');
+        my $productversion = $self->_command('sw_vers -productVersion');
         if ($productversion =~ /(\d+)\.(\d+)\.(\d+)/) {
             my ($major, $minor, $release) = ($1, $2, $3);
-            my $versions = macos_versions();
+            my $versions = _macos_versions();
             if (my $codename = $versions->{"$major.$minor"}) {
                 $self->{info}{codename} = $codename;
                 $self->{info}{osvers}  = "$major.$minor.$release";
@@ -39,19 +38,19 @@ sub get_info {
         }
     }
     
-    if (my $arch = $self->command('uname -p')) {
+    if (my $arch = $self->_command('uname -p')) {
         chomp $arch;
         $self->{info}{archname} = $arch;
         $self->{info}{is32bit}  = $arch !~ /_(64)$/ ? 1 : 0;
         $self->{info}{is64bit}  = $arch =~ /_(64)$/ ? 1 : 0;
     }
     
-    if (my $unamev = $self->command('uname -v')) {
+    if (my $unamev = $self->_command('uname -v')) {
         chomp $unamev;
         $self->{info}{kernel} = $unamev;
     }
     
-    $self->command('uname -a');
+    $self->_command('uname -a');
     
     return $self->{info};
 }
@@ -59,7 +58,7 @@ sub get_info {
 
 #-------------------------------------------------------------------------------
 
-sub command {
+sub _command {
     my $self    = shift;
     my $command = shift;
     my $result  = `$command`;
@@ -75,7 +74,7 @@ sub command {
 
 #-------------------------------------------------------------------------------
 
-sub macos_versions {
+sub _macos_versions {
     return {
         '10.0' => 'Cheetah',
         '10.1' => 'Puma',
