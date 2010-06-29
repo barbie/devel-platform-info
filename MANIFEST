@@ -7,6 +7,7 @@ lib/Devel/Platform/Info/SCO.pm
 lib/Devel/Platform/Info/Win32.pm
 Makefile.PL
 MANIFEST
+META.json
 META.yml
 README
 t/01base.t
