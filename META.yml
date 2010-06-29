@@ -13,14 +13,16 @@ distribution_type:        module
 installdirs:              site
 
 recommends:
-  IO::File:                         0
-  Test::More:                       0.70
-  Test::Pod:                        1.00
-  Test::Pod::Coverage:              0.08
-  Test::CPAN::Meta:                 0.12
+  Win32:                  0
+  POSIX:                  0
+  IO::File:               0
+  Test::More:             0.70
+  Test::Pod:              1.00
+  Test::Pod::Coverage:    0.08
+  Test::CPAN::Meta:       0.12
 build_requires:
-  IO::File:                         0
-  Test::More:                       0.01
+  IO::File:               0
+  Test::More:             0.01
 
 provides:
   Devel::Platform::Info:
@@ -29,8 +31,14 @@ provides:
   Devel::Platform::Info::Linux:
     file:     lib/Devel/Platform/Info/Linux.pm
     version:  0.01
+  Devel::Platform::Info::Mac:
+    file:     lib/Devel/Platform/Info/Mac.pm
+    version:  0.01
   Devel::Platform::Info::SCO:
     file:     lib/Devel/Platform/Info/SCO.pm
+    version:  0.01
+  Devel::Platform::Info::Win32:
+    file:     lib/Devel/Platform/Info/Win32.pm
     version:  0.01
 
 no_index:

@@ -7,6 +7,8 @@ use POSIX;
 use vars qw($VERSION);
 $VERSION = '0.01';
 
+#----------------------------------------------------------------------------
+
 sub new {
     my ($class) = @_;
     my $self = {};
@@ -34,10 +36,10 @@ sub get_info {
 sub _GetArchName
 {
 	my $self = shift;
-	my @uname = POSIX::uname();
-	my @versions = Win32::GetOSVersion();
-	my $info = $self->_InterpretWin32Info(@versions);
-	$self->_AddPOSIXInfo($info, \@uname);
+    my @uname = POSIX::uname();
+ 	my @versions = Win32::GetOSVersion();
+    my $info = $self->_InterpretWin32Info(@versions);
+    $self->_AddPOSIXInfo($info, \@uname);
 	return $info;
 }
 
@@ -182,22 +184,26 @@ Returns the following keys:
   osflag
   wow64
 
-On a 64 bit Windows if you are running 32 bit perl the archname is likely to indicate x86.  The wow64 variable will tell you if you are in fact running on x64 Windows.
+On a 64 bit Windows if you are running 32 bit perl the archname is likely to 
+indicate x86.  The wow64 variable will tell you if you are in fact running on 
+x64 Windows.
 
 =back
 
 =head1 BUGS, PATCHES & FIXES
 
-The module cannot accurately tell the difference between the Windows Server 2003 and Windows Server 2003 R2.
+The module cannot accurately tell the difference between the Windows Server 
+2003 and Windows Server 2003 R2.
 
-The wow64 variable indicates whether or not you are running a 32 bit perl on a 64 bit windows.  It uses the environment variable PROCESSOR_ARCHITEW6432 rather than the IsWow64Process call because it's simpler.
+The wow64 variable indicates whether or not you are running a 32 bit perl on a 
+64 bit windows.  It uses the environment variable PROCESSOR_ARCHITEW6432 rather 
+than the IsWow64Process call because it's simpler.
 
-If you spot a
-bug or are experiencing difficulties, that is not explained within the POD
-documentation, please send bug reports and patches to the RT Queue (see below).
+If you spot a bug or are experiencing difficulties, that is not explained 
+within the POD documentation, please send bug reports and patches to the RT 
+Queue (see below).
 
-RT Queue -
-http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
+RT Queue - http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 AUTHORS
 

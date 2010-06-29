@@ -2,12 +2,17 @@ Changes
 examples/info.pl
 lib/Devel/Platform/Info.pm
 lib/Devel/Platform/Info/Linux.pm
+lib/Devel/Platform/Info/Mac.pm
 lib/Devel/Platform/Info/SCO.pm
+lib/Devel/Platform/Info/Win32.pm
 Makefile.PL
 MANIFEST
 META.yml
 README
 t/01base.t
+t/02diag.t
+t/55win32_agnostic.t
+t/56win32.t
 t/90podtest.t
 t/91podcover.t
 t/94metatest.t

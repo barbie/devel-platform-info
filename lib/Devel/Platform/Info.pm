@@ -36,7 +36,7 @@ my %map = (
     'os2'       => 'Win32',
     'mswin32'   => 'Win32',
     'netware'   => 'Win32',
-    'cygwin'   => 'Win32',
+    'cygwin'    => 'Win32',
 
     # Mac family OSes
     'macos'     => 'Mac',
@@ -136,17 +136,18 @@ Returns at least the following keys:
 
   source
   archname
-  kernel
   osname
   osvers
   oslabel
-  codename
   is32bit
   is64bit
   osflag
 
 Note that the 'source' key returns the commands and output used to obtain the 
 metadata for possible future use.
+
+Further keys maybe available to provide additional information if applicable
+to the specific operating system.
 
 =back
 
