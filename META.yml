@@ -31,6 +31,9 @@ provides:
   Devel::Platform::Info::Linux:
     file:     lib/Devel/Platform/Info/Linux.pm
     version:  0.01
+  Devel::Platform::Info::Mac:
+    file:     lib/Devel/Platform/Info/Mac.pm
+    version:  0.01
   Devel::Platform::Info::SCO:
     file:     lib/Devel/Platform/Info/SCO.pm
     version:  0.01
