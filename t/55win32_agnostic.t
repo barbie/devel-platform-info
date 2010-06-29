@@ -6,14 +6,9 @@ use strict;
 
 use Test::More tests => 23;
 
-eval "use Win32";
-my $skip = $@ || 0;
-
-eval "use Devel::Platform::Info::Win32";
-$skip ||= $@;
-
 SKIP: {
-	skip('These tests are only applicable on a win32 platform', 23) if $skip;
+    eval "use Devel::Platform::Info::Win32";
+	skip('These tests are only applicable on a win32 platform', 23) if $@;
 
     my $win32 = Devel::Platform::Info::Win32->new();
     my @args = ('', 6, 1, 7600, 2, 0, 0, 256, 1);

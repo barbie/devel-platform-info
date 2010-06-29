@@ -36,15 +36,10 @@ sub get_info {
 sub _GetArchName
 {
 	my $self = shift;
-    my $info;
-    eval { 
-        use Win32;
-
-        my @uname = POSIX::uname();
-    	my @versions = Win32::GetOSVersion();
-	    $info = $self->_InterpretWin32Info(@versions);
-    	$self->_AddPOSIXInfo($info, \@uname);
-    }
+    my @uname = POSIX::uname();
+ 	my @versions = Win32::GetOSVersion();
+    my $info = $self->_InterpretWin32Info(@versions);
+    $self->_AddPOSIXInfo($info, \@uname);
 	return $info;
 }
 
