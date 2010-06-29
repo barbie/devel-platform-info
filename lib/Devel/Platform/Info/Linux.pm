@@ -6,6 +6,8 @@ use warnings;
 use vars qw($VERSION);
 $VERSION = '0.01';
 
+use IO::File;
+
 #----------------------------------------------------------------------------
 
 my %commands = (
@@ -15,6 +17,21 @@ my %commands = (
     'kvers'     => 'uname -r',
     'osname'    => 'uname -o',
     'archname'  => 'uname -m',
+);
+
+my $DEBIAN = '/etc/debian_version';
+my %debian = (
+    '1.1'   => 'buzz',
+    '1.2'   => 'rex',
+    '1.3'   => 'bo',
+    '2.0'   => 'hamm',
+    '2.1'   => 'slink',
+    '2.2'   => 'potato',
+    '3.0'   => 'woody',
+    '3.1'   => 'sarge',
+    '4.0'   => 'etch',
+    '5.0'   => 'lenny',
+    '6.0'   => 'squeeze',
 );
 
 #----------------------------------------------------------------------------
@@ -45,7 +62,25 @@ sub get_info {
     $self->{info}{is32bit}      = $self->{info}{archname} !~ /_(64)$/ ? 1 : 0;
     $self->{info}{is64bit}      = $self->{info}{archname} =~ /_(64)$/ ? 1 : 0;
 
+    $self->_debian_version()    if(-f $DEBIAN);
+
     return $self->{info};
+}
+
+#----------------------------------------------------------------------------
+
+sub _debian_version {
+    my $self = shift;
+    my $line = `cat $DEBIAN`;
+    my ($osvers,$major) = $line =~ /^((\d+\.\d+).*)/;
+
+    $self->{info}{source} .= "cat $DEBIAN\n$line\n";
+
+    if($osvers) {
+        $self->{info}{codename} = $debian{$major};
+        $self->{info}{oslabel}  = 'Debian';
+        $self->{info}{osvers}   = $osvers;
+    }
 }
 
 1;
