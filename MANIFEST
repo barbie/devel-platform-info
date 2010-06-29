@@ -10,6 +10,7 @@ MANIFEST
 META.yml
 README
 t/01base.t
+t/02diag.t
 t/55win32_agnostic.t
 t/56win32.t
 t/90podtest.t
