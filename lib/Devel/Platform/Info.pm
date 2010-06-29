@@ -91,7 +91,7 @@ __END__
 
 =head1 NAME
 
-Devel::Platform::Info - Retrieve common platform metadata
+Devel::Platform::Info - Unified framework for obtaining common platform metadata
 
 =head1 SYNOPSIS
 

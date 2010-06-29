@@ -95,7 +95,7 @@ __END__
 
 =head1 NAME
 
-Devel::Platform::Info::Mac - Retrieve common platform metadata
+Devel::Platform::Info::Mac - Retrieve Mac platform metadata
 
 =head1 SYNOPSIS
 

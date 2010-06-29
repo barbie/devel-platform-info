@@ -6,8 +6,6 @@ use warnings;
 use vars qw($VERSION);
 $VERSION = '0.01';
 
-use IO::File;
-
 #----------------------------------------------------------------------------
 
 my %commands = (
@@ -219,7 +217,7 @@ __END__
 
 =head1 NAME
 
-Devel::Platform::Info::Linux - Retrieve common platform metadata
+Devel::Platform::Info::Linux - Retrieve Linux platform metadata
 
 =head1 SYNOPSIS
 

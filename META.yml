@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:                     Devel-Platform-Info
 version:                  0.01
-abstract:                 Parse a CPAN Testers NNTP article
+abstract:                 Unified framework for obtaining common platform metadata
 author:
   - Barbie (BARBIE) <barbie@cpan.org>
   - Brian McCauley (NOBULL) <nobull67@gmail.com>

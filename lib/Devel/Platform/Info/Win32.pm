@@ -138,7 +138,7 @@ __END__
 
 =head1 NAME
 
-Devel::Platform::Info::Win32 - Retrieve common platform metadata
+Devel::Platform::Info::Win32 - Retrieve Windows platform metadata
 
 =head1 SYNOPSIS
 

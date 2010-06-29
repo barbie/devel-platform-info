@@ -72,7 +72,7 @@ __END__
 
 =head1 NAME
 
-Devel::Platform::Info::SCO - Retrieve common platform metadata
+Devel::Platform::Info::SCO - Retrieve SCO Unix platform metadata
 
 =head1 SYNOPSIS
 
