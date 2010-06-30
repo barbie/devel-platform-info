@@ -15,7 +15,6 @@ installdirs:              site
 recommends:
   Win32:                  0
   POSIX:                  0
-  IO::File:               0
   Test::More:             0.70
   Test::Pod:              1.00
   Test::Pod::Coverage:    0.08

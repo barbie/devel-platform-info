@@ -23,9 +23,24 @@
         "testing"
     ],
 
+    "optional_features" : {
+        "win32" : {
+            "description" : "for Win32 support",
+            "prereqs" : {
+                "runtime" : {
+                    "requires" : {
+                        "Win32": "0",
+                        "POSIX": "0"
+                    }
+                }
+            }
+        }
+    }
+
     "prereqs" : {
         "test" : {
             "requires": {
+                "IO::File": "0",
                 "Test::More": "0.70",
                 "Test::Builder::Tester": "0"
             },
