@@ -151,6 +151,12 @@ to the specific operating system.
 
 =back
 
+=head1 REFERENCES
+
+The following links were used to understand how to retrieve the metadata:
+
+  * http://alma.ch/perl/perloses.htm
+
 =head1 BUGS, PATCHES & FIXES
 
 There are no known bugs at the time of this release. However, if you spot a
