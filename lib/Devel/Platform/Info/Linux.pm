@@ -17,8 +17,6 @@ my %commands = (
     'kvers'     => 'uname -r',
     'osname'    => 'uname -o',
     'archname'  => 'uname -m',
-
-    '_irix1'   => 'uname -R',   # IRIX specific
 );
 
 my %default = ();
@@ -101,40 +99,61 @@ my %mandriva = (
 );
 
 my %distributions = (
-    'Annvix'                => { codenames => \%default, files => [ qw( /etc/annvix-release ) ] },
-    'Arch Linux'            => { codenames => \%archlinux,  files => [ qw( /etc/arch-release ) ] },
-    'Arklinux'              => { codenames => \%default, files => [ qw( /etc/arklinux-release ) ] },
-    'Aurox Linux'           => { codenames => \%default, files => [ qw( /etc/aurox-release ) ] },
-    'BlackCat'              => { codenames => \%default, files => [ qw( /etc/blackcat-release ) ] },
-    'Cobalt'                => { codenames => \%default, files => [ qw( /etc/cobalt-release ) ] },
-    'Conectiva'             => { codenames => \%default, files => [ qw( /etc/conectiva-release ) ] },
-    'Debian'                => { codenames => \%debian,     files => [ qw( /etc/debian_version /etc/debian_release ) ] },
-    'Fedora Core'           => { codenames => \%fedora,     files => [ qw( /etc/fedora-release ) ] },
-    'Gentoo Linux'          => { codenames => \%default, files => [ qw( /etc/gentoo-release ) ] },
-    'Immunix'               => { codenames => \%default, files => [ qw( /etc/immunix-release ) ] },
-    'Knoppix'               => { codenames => \%default, files => [ qw( /etc/knoppix_version ) ] },
-    'Linux-From-Scratch'    => { codenames => \%default, files => [ qw( /etc/lfs-release ) ] },
-    'Linux-PPC'             => { codenames => \%default, files => [ qw( /etc/linuxppc-release ) ] },
-    'Mandrake'              => { codenames => \%mandriva,   files => [ qw( /etc/mandrake-release ) ] },
-    'Mandriva'              => { codenames => \%mandriva,   files => [ qw( /etc/mandriva-release /etc/mandrake-release /etc/mandakelinux-release ) ] },
-    'Mandrake Linux'        => { codenames => \%mandriva,   files => [ qw( /etc/mandriva-release /etc/mandrake-release /etc/mandakelinux-release ) ] },
-    'MkLinux'               => { codenames => \%default, files => [ qw( /etc/mklinux-release ) ] },
-    'Novell Linux Desktop'  => { codenames => \%default, files => [ qw( /etc/nld-release ) ] },
-    'PLD Linux'             => { codenames => \%default, files => [ qw( /etc/pld-release ) ] },
-    'Red Hat'               => { codenames => \%default, files => [ qw( /etc/redhat-release /etc/redhat_version ) ] },
-    'Slackware'             => { codenames => \%default, files => [ qw( /etc/slackware-version /etc/slackware-release ) ] },
-    'SME Server'            => { codenames => \%default, files => [ qw( /etc/e-smith-release ) ] },
-    'Solaris SPARC'         => { codenames => \%default, files => [ qw( /etc/release ) ] },
-    'Sun JDS'               => { codenames => \%default, files => [ qw( /etc/sun-release ) ] },
-    'SUSE Linux'            => { codenames => \%default, files => [ qw( /etc/SuSE-release /etc/novell-release ) ] },
-    'SUSE Linux ES9'        => { codenames => \%default, files => [ qw( /etc/sles-release ) ] },
-    'Tiny Sofa'             => { codenames => \%default, files => [ qw( /etc/tinysofa-release ) ] },
-    'TurboLinux'            => { codenames => \%default, files => [ qw( /etc/turbolinux-release ) ] },
-    'Ubuntu Linux'          => { codenames => \%default, files => [ qw( /etc/lsb-release ) ] },
-    'UltraPenguin'          => { codenames => \%default, files => [ qw( /etc/ultrapenguin-release ) ] },
-    'UnitedLinux'           => { codenames => \%default, files => [ qw( /etc/UnitedLinux-release ) ] },
-    'VA-Linux/RH-VALE'      => { codenames => \%default, files => [ qw( /etc/va-release ) ] },
-    'Yellow Dog'            => { codenames => \%default, files => [ qw( /etc/yellowdog-release ) ] },
+    'Adamantix'             => { codenames => \%default,                        files => [ qw( /etc/adamantix_version ) ] },
+    'Annvix'                => { codenames => \%default,                        files => [ qw( /etc/annvix-release ) ] },
+    'Arch Linux'            => { codenames => \%archlinux,                      files => [ qw( /etc/arch-release ) ] },
+    'Arklinux'              => { codenames => \%default,                        files => [ qw( /etc/arklinux-release ) ] },
+    'Aurox Linux'           => { codenames => \%default,                        files => [ qw( /etc/aurox-release ) ] },
+    'BlackCat'              => { codenames => \%default,                        files => [ qw( /etc/blackcat-release ) ] },
+    'Cobalt'                => { codenames => \%default,                        files => [ qw( /etc/cobalt-release ) ] },
+    'Conectiva'             => { codenames => \%default,                        files => [ qw( /etc/conectiva-release ) ] },
+    'Debian'                => { codenames => \%debian,     key => 'debian',    files => [ qw( /etc/debian_version /etc/debian_release ) ] },
+    'Fedora Core'           => { codenames => \%fedora,     key => 'fedora',    files => [ qw( /etc/fedora-release ) ] },
+    'Gentoo Linux'          => { codenames => \%default,    key => 'gentoo',    files => [ qw( /etc/gentoo-release ) ] },
+    'Immunix'               => { codenames => \%default,                        files => [ qw( /etc/immunix-release ) ] },
+    'Knoppix'               => { codenames => \%default,                        files => [ qw( /etc/knoppix_version ) ] },
+    'Libranet'              => { codenames => \%default,                        files => [ qw( /etc/libranet_version ) ] },
+    'Linux-From-Scratch'    => { codenames => \%default,                        files => [ qw( /etc/lfs-release ) ] },
+    'Linux-PPC'             => { codenames => \%default,                        files => [ qw( /etc/linuxppc-release ) ] },
+    'Mandrake'              => { codenames => \%mandriva,                       files => [ qw( /etc/mandrake-release ) ] },
+    'Mandriva'              => { codenames => \%mandriva,                       files => [ qw( /etc/mandriva-release /etc/mandrake-release /etc/mandakelinux-release ) ] },
+    'Mandrake Linux'        => { codenames => \%mandriva,                       files => [ qw( /etc/mandriva-release /etc/mandrake-release /etc/mandakelinux-release ) ] },
+    'MkLinux'               => { codenames => \%default,                        files => [ qw( /etc/mklinux-release ) ] },
+    'Novell Linux Desktop'  => { codenames => \%default,                        files => [ qw( /etc/nld-release ) ] },
+    'Pardus'                => { codenames => \%default,    key => 'pardus',    files => [ qw( /etc/pardus-release ) ] },
+    'PLD Linux'             => { codenames => \%default,                        files => [ qw( /etc/pld-release ) ] },
+    'Red Flag'              => { codenames => \%default,    key => 'redflag',   files => [ qw( /etc/redflag-release ) ] },
+    'Red Hat'               => { codenames => \%default,    key => 'redhat',    files => [ qw( /etc/redhat-release /etc/redhat_version ) ] },
+    'Slackware'             => { codenames => \%default,    key => 'slackware', files => [ qw( /etc/slackware-version /etc/slackware-release ) ] },
+    'SME Server'            => { codenames => \%default,                        files => [ qw( /etc/e-smith-release ) ] },
+    'Solaris SPARC'         => { codenames => \%default,                        files => [ qw( /etc/release ) ] },
+    'Sun JDS'               => { codenames => \%default,                        files => [ qw( /etc/sun-release ) ] },
+    'SUSE Linux'            => { codenames => \%default,    key => 'suse',      files => [ qw( /etc/SuSE-release /etc/novell-release ) ] },
+    'SUSE Linux ES9'        => { codenames => \%default,    key => 'suse',      files => [ qw( /etc/sles-release ) ] },
+    'Tiny Sofa'             => { codenames => \%default,                        files => [ qw( /etc/tinysofa-release ) ] },
+    'Trustix Secure Linux'  => { codenames => \%default,                        files => [ qw( /etc/trustix-release ) ] },
+    'TurboLinux'            => { codenames => \%default,                        files => [ qw( /etc/turbolinux-release ) ] },
+    'Ubuntu Linux'          => { codenames => \%default,                        files => [ qw( /etc/lsb-release ) ] },
+    'UltraPenguin'          => { codenames => \%default,                        files => [ qw( /etc/ultrapenguin-release ) ] },
+    'UnitedLinux'           => { codenames => \%default,                        files => [ qw( /etc/UnitedLinux-release ) ] },
+    'VA-Linux/RH-VALE'      => { codenames => \%default,                        files => [ qw( /etc/va-release ) ] },
+    'Yellow Dog'            => { codenames => \%default,                        files => [ qw( /etc/yellowdog-release ) ] },
+    'Yoper'                 => { codenames => \%default,                        files => [ qw( /etc/yoper-release ) ] },
+);
+
+my %version_pattern = (
+    'gentoo'    => 'Gentoo Base System version (.*)',
+    'debian'    => '(.+)',
+    'suse'      => 'VERSION = (.*)',
+    'fedora'    => 'Fedora Core release (\d+) \(',
+    'redflag'   => 'Red Flag (?:Desktop|Linux) (?:release |\()(.*?)(?: \(.+)?\)',
+    'redhat'    => 'Red Hat Linux release (.*) \(',
+    'slackware' => '^Slackware (.+)$',
+    'pardus'    => '^Pardus (.+)$',
+);
+
+my %oslabel_pattern = (
+    'suse'      => '^(\S+)',
 );
 
 #----------------------------------------------------------------------------
@@ -179,44 +198,45 @@ sub get_info {
 sub _release_version {
     my $self = shift;
 
-    if($self->{info}{kname} =~ /irix/i) {
-        $self->{info}{osname}   = 'IRIX';
-        $self->{info}{oslabel}  = 'IRIX';
-        $self->{info}{is32bit}  = $self->{info}{kname} !~ /64/ ? 1 : 0;
-        $self->{info}{is64bit}  = $self->{info}{kname} =~ /64/ ? 1 : 0;
-        return;
-    }
-
     for my $label (keys %distributions) {
         for my $file (@{ $distributions{$label}->{files} }) {
             next    unless(-f $file);
             my $line = `cat $file 2>/dev/null`;
 
-            my ($version) = $line =~ /VERSION\s*=\s*(.*)\n?/si;
+            my ($version,$oslabel);
+            if($distributions{$label}->{key}) {
+                if($version_pattern{ $distributions{$label}->{key} }) {
+                    ($version) = $line =~ /$version_pattern{ $distributions{$label}->{key} }/si;
+                }
+                if($oslabel_pattern{ $distributions{$label}->{key} }) {
+                    ($oslabel) = $line =~ /$oslabel_pattern{ $distributions{$label}->{key} }/si;
+                }
+            }
+
             $version = $line    unless($version);
             $version =~ s/\s*$//;
 
-            my $oslabel;
-            if($label eq 'SUSE Linux') {
-                ($oslabel) = $line =~ /^(\S*)/;
-            } elsif($self->{cmds}{'_issue1'}) {
-                ($oslabel) = $self->{cmds}{'_issue1'} =~ /^(\S*)/;
-            } elsif($self->{cmds}{'_issue2'}) {
-                ($oslabel) = $self->{cmds}{'_issue2'} =~ /^(\S*)/;
+            unless($oslabel) {
+                if($self->{cmds}{'_issue1'}) {
+                    ($oslabel) = $self->{cmds}{'_issue1'} =~ /^(\S*)/;
+                } elsif($self->{cmds}{'_issue2'}) {
+                    ($oslabel) = $self->{cmds}{'_issue2'} =~ /^(\S*)/;
+                }
+                $oslabel ||= $label;    # a last resort
             }
-            $oslabel ||= $label;    # just in case
+
+            $self->{info}{oslabel}  = $oslabel;
+            $self->{info}{osvers}   = $version;
+            $self->{info}{source}  .= "cat $file\n$line\n";
 
             for my $vers (keys %{ $distributions{$label}->{codenames} }) {
                 if($version =~ /^$vers\b/) {
                     $self->{info}{codename} = $distributions{$label}->{codenames}{$vers};
-                    $self->{info}{oslabel}  = $oslabel;
-                    $self->{info}{osvers}   = $version;
-
-                    $self->{info}{source} .= "cat $file\n$line\n";
-                    
                     return;
                 }
             }
+
+            return;
         }
     }
 }
@@ -278,6 +298,14 @@ Returns the following keys:
   kvers
 
 =back
+
+=head1 REFERENCES
+
+The following links were used to understand how to retrieve the metadata:
+
+  * http://distrowatch.com/
+  * Wikipedia pages for various Linux and Unix based OSes
+  * http://search.cpan.org/dist/Sys-Info-Driver-Linux
 
 =head1 BUGS, PATCHES & FIXES
 
