@@ -1,5 +1,8 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.02    01/07/2010
+        - added support for Irix and the BSD family.
+
 0.01    30/06/2010
         - initial release.
