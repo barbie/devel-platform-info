@@ -31,13 +31,12 @@ INTERFACE
 
              source
              archname
-             kernel
              osname
              osvers
              oslabel
-             codename
              is32bit
              is64bit
+             osflag
 
            Note that the 'source' key returns the commands and output used
            to obtain the metadata for possible future use.

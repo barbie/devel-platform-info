@@ -11,6 +11,6 @@ isnt($data,undef);
 
 diag("OS: $^O");
 if($data) {
-    diag(".. $_ => " . ($data->{$_}||''))   for(keys %$data);
+    diag(".. $_ => " . (defined $data->{$_} ? $data->{$_} : ''))   for(keys %$data);
 }
 

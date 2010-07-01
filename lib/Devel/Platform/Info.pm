@@ -4,28 +4,28 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 #----------------------------------------------------------------------------
 
 my %map = (
     # Unix (and like) family OSes
+    'freebsd'   => 'BSD',
+    'openbsd'   => 'BSD',
+    'netbsd'    => 'BSD',
+    'irix'      => 'Irix',
     'linux'     => 'Linux',
     'aix'       => 'Linux',
     'bsdos'     => 'Linux',
     'dgux'      => 'Linux',
     'dynixptx'  => 'Linux',
-    'freebsd'   => 'Linux',
     'hpux'      => 'Linux',
-    'irix'      => 'Linux',
-    'openbsd'   => 'Linux',
     'dec_osf'   => 'Linux',
     'svr4'      => 'Linux',
     'unicos'    => 'Linux',
     'unicosmk'  => 'Linux',
     'solaris'   => 'Linux',
     'sunos'     => 'Linux',
-    'netbsd'    => 'Linux',
     'ultrix'    => 'Linux',
     'sco_sv'    => 'SCO',
     'sco3'      => 'SCO',
@@ -157,8 +157,7 @@ There are no known bugs at the time of this release. However, if you spot a
 bug or are experiencing difficulties, that is not explained within the POD
 documentation, please send bug reports and patches to the RT Queue (see below).
 
-RT Queue -
-http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
+RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 AUTHORS
 
