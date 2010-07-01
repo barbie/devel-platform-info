@@ -28,6 +28,12 @@ provides:
   Devel::Platform::Info:
     file:     lib/Devel/Platform/Info.pm
     version:  0.01
+  Devel::Platform::Info::BSD:
+    file:     lib/Devel/Platform/Info/BSD.pm
+    version:  0.01
+  Devel::Platform::Info::Irix:
+    file:     lib/Devel/Platform/Info/Irix.pm
+    version:  0.01
   Devel::Platform::Info::Linux:
     file:     lib/Devel/Platform/Info/Linux.pm
     version:  0.01

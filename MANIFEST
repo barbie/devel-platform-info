@@ -1,6 +1,8 @@
 Changes
 examples/info.pl
 lib/Devel/Platform/Info.pm
+lib/Devel/Platform/Info/BSD.pm
+lib/Devel/Platform/Info/Irix.pm
 lib/Devel/Platform/Info/Linux.pm
 lib/Devel/Platform/Info/Mac.pm
 lib/Devel/Platform/Info/SCO.pm
