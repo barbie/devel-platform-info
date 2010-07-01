@@ -179,7 +179,7 @@ sub get_info {
 sub _release_version {
     my $self = shift;
 
-    if($self->{info){kname} =~ /irix/i) {
+    if($self->{info}{kname} =~ /irix/i) {
         $self->{info}{osname}   = 'IRIX';
         $self->{info}{oslabel}  = 'IRIX';
         $self->{info}{is32bit}  = $self->{info}{kname} !~ /64/ ? 1 : 0;
