@@ -98,6 +98,21 @@ my %mandriva = (
     '2010.0' => 'Mandriva Linux 2010 (Adélie)',
 );
 
+my %ubuntu = (
+    '4.10'  => 'Warty Warthog',
+    '5.04'  => 'Hoary Hedgehog',
+    '5.10'  => 'Breezy Badger',
+    '6.06'  => 'Dapper Drake',
+    '6.10'  => 'Edgy Eft',
+    '7.04'  => 'Feisty Fawn',
+    '7.10'  => 'Gutsy Gibbon',
+    '8.04'  => 'Hardy Heron',
+    '8.10'  => 'Intrepid Ibex',
+    '9.04'  => 'Jaunty Jackalope',
+    '9.10'  => 'Karmic Koala',
+	'10.04' => 'Lucid Lynx',
+);
+             
 my %distributions = (
     'Adamantix'             => { codenames => \%default,                        files => [ qw( /etc/adamantix_version ) ] },
     'Annvix'                => { codenames => \%default,                        files => [ qw( /etc/annvix-release ) ] },
@@ -126,14 +141,13 @@ my %distributions = (
     'Red Hat'               => { codenames => \%default,    key => 'redhat',    files => [ qw( /etc/redhat-release /etc/redhat_version ) ] },
     'Slackware'             => { codenames => \%default,    key => 'slackware', files => [ qw( /etc/slackware-version /etc/slackware-release ) ] },
     'SME Server'            => { codenames => \%default,                        files => [ qw( /etc/e-smith-release ) ] },
-    'Solaris SPARC'         => { codenames => \%default,                        files => [ qw( /etc/release ) ] },
     'Sun JDS'               => { codenames => \%default,                        files => [ qw( /etc/sun-release ) ] },
     'SUSE Linux'            => { codenames => \%default,    key => 'suse',      files => [ qw( /etc/SuSE-release /etc/novell-release ) ] },
     'SUSE Linux ES9'        => { codenames => \%default,    key => 'suse',      files => [ qw( /etc/sles-release ) ] },
     'Tiny Sofa'             => { codenames => \%default,                        files => [ qw( /etc/tinysofa-release ) ] },
     'Trustix Secure Linux'  => { codenames => \%default,                        files => [ qw( /etc/trustix-release ) ] },
     'TurboLinux'            => { codenames => \%default,                        files => [ qw( /etc/turbolinux-release ) ] },
-    'Ubuntu Linux'          => { codenames => \%default,                        files => [ qw( /etc/lsb-release ) ] },
+    'Ubuntu Linux'          => { codenames => \%ubuntu,                         files => [ qw( /etc/lsb-release ) ] },
     'UltraPenguin'          => { codenames => \%default,                        files => [ qw( /etc/ultrapenguin-release ) ] },
     'UnitedLinux'           => { codenames => \%default,                        files => [ qw( /etc/UnitedLinux-release ) ] },
     'VA-Linux/RH-VALE'      => { codenames => \%default,                        files => [ qw( /etc/va-release ) ] },
