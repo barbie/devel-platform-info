@@ -1,7 +1,7 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
-0.03    current
+0.03    02/07/2010
         - added support for more known Linux distributions.
         - better pattern matching for osvers and oslabel in Linux.pm
         - added reference links.
