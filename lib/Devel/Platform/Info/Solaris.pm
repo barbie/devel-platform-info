@@ -46,7 +46,7 @@ sub get_info {
     ($self->{info}{osname}) = $self->{info}{_release} =~ /^(\S+)/;
     $self->{info}{oslabel}  = $self->{info}{osname};
     $self->{info}{osvers} = $self->{info}{kname};
-    $self->{info}{osvers} =~ /^5/2/;    # a bit of a hack :(
+    $self->{info}{osvers} =~ s/^5/2/;   # a bit of a hack :(
 
     # Question: Anyone know how to get the real version number for OpenSolaris?
     # i.e. "2008.05" or "2009.06"

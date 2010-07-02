@@ -61,11 +61,11 @@
         "Devel::Platform::Info::BSD": {
             "file": "lib/Devel/Platform/Info/BSD.pm",
             "version": "0.02"
-        }
+        },
         "Devel::Platform::Info::Irix": {
             "file": "lib/Devel/Platform/Info/Irix.pm",
             "version": "0.02"
-        }
+        },
         "Devel::Platform::Info::Linux": {
             "file": "lib/Devel/Platform/Info/Linux.pm",
             "version": "0.02"
