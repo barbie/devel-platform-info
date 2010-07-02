@@ -1,6 +1,13 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.03    current
+        - added support for more known Linux distributions.
+        - better pattern matching for osvers and oslabel in Linux.pm
+        - added reference links.
+        - reimplemented use tests for plugins.
+        - added specific support plugin for Solaris family.
+
 0.02    01/07/2010
         - added support for Irix and the BSD family.
 

@@ -24,12 +24,12 @@ my %map = (
     'svr4'      => 'Linux',
     'unicos'    => 'Linux',
     'unicosmk'  => 'Linux',
-    'solaris'   => 'Linux',
     'sunos'     => 'Linux',
     'ultrix'    => 'Linux',
     'sco_sv'    => 'SCO',
     'sco3'      => 'SCO',
     'sco'       => 'SCO',
+    'solaris'   => 'Solaris',
 
     # Windows family OSes
     'dos'       => 'Win32',

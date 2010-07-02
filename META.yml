@@ -43,6 +43,9 @@ provides:
   Devel::Platform::Info::SCO:
     file:     lib/Devel/Platform/Info/SCO.pm
     version:  0.02
+  Devel::Platform::Info::Solaris:
+    file:     lib/Devel/Platform/Info/Solaris.pm
+    version:  0.02
   Devel::Platform::Info::Win32:
     file:     lib/Devel/Platform/Info/Win32.pm
     version:  0.02
