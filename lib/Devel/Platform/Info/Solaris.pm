@@ -10,7 +10,7 @@ $VERSION = '0.03';
 
 my %commands = (
     '_uname1'   => 'uname -a',
-    '_showrev'  => 'showrev -a',
+    '_showrev'  => 'showrev -a | grep -v "^Patch"',
     '_release'  => 'cat /etc/release',
     '_isainfo'  => '/usr/bin/isainfo -kv',
     'kname'     => 'uname -s',
@@ -40,10 +40,10 @@ sub get_info {
 
     $self->{info}{osflag}   = $^O;
     $self->{info}{kernel}   = lc($self->{info}{kname}) . '-' . $self->{info}{kvers};
-    $self->{info}{is32bit}  = $self->{info}{_isainfo} !~ /64-bit/s ? 1 : 0;
-    $self->{info}{is64bit}  = $self->{info}{_isainfo} =~ /64-bit/s ? 1 : 0;
+    $self->{info}{is32bit}  = $self->{cmds}{_isainfo} !~ /64-bit/s ? 1 : 0;
+    $self->{info}{is64bit}  = $self->{cmds}{_isainfo} =~ /64-bit/s ? 1 : 0;
 
-    ($self->{info}{osname}) = $self->{info}{_release} =~ /^(\S+)/;
+    ($self->{info}{osname}) = $self->{cmds}{_release} =~ /^(\S+)/;
     $self->{info}{oslabel}  = $self->{info}{osname};
     $self->{info}{osvers} = $self->{info}{kname};
     $self->{info}{osvers} =~ s/^5/2/;   # a bit of a hack :(
