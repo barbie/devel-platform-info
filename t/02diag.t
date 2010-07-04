@@ -10,7 +10,11 @@ my $data = $info->get_info();
 isnt($data,undef);
 
 diag("OS: $^O");
+
 if($data) {
-    diag(".. $_ => " . (defined $data->{$_} ? $data->{$_} : ''))   for(keys %$data);
+    diag('.. source => ');
+    diag("   .. $_ => " . (defined $data->{source}{$_} ? $data->{source}{$_} : ''))   for(sort keys %{$data->{source}});
+
+    diag(".. $_ => " . (defined $data->{$_} ? $data->{$_} : ''))   for(grep {!/source/} keys %$data);
 }
 

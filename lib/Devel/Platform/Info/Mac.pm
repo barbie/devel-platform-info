@@ -62,10 +62,7 @@ sub _command {
     my $command = shift;
     my $result  = `$command`;
     
-    $self->{info}{source} .= $command;
-    $self->{info}{source} .= "\n";
-    $self->{info}{source} .= $result;    
-    $self->{info}{source} .= "\n";
+    $self->{info}{source}{$command} = $result;    
     
     chomp $result;
     return $result;  
@@ -84,7 +81,6 @@ sub _macos_versions {
         '10.6' => 'Snow Leopard',
     };
 }
-
 
 #-------------------------------------------------------------------------------
 

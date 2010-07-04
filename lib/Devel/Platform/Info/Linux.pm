@@ -185,7 +185,6 @@ sub get_info {
 
     for my $cmd (keys %commands) {
         $self->{cmds}{$cmd} = `$commands{$cmd} 2>/dev/null`;
-        $self->{info}{source} .= "$commands{$cmd}\n$self->{cmds}{$cmd}\n";
         $self->{cmds}{$cmd} =~ s/\s+$//s;
         $self->{info}{$cmd} = $self->{cmds}{$cmd}   if($cmd =~ /^[^_]/);
     }
@@ -204,6 +203,7 @@ sub get_info {
         $self->_release_version();
     }
 
+    $self->{info}{source}{$commands{$_}} = $self->{cmds}{$_}    for(keys %commands);
     return $self->{info};
 }
 
@@ -241,7 +241,8 @@ sub _release_version {
 
             $self->{info}{oslabel}  = $oslabel;
             $self->{info}{osvers}   = $version;
-            $self->{info}{source}  .= "cat $file\n$line\n";
+            $commands{'_cat'} = "cat $file";
+            $self->{cmds}{'_cat'}  = $line;
 
             for my $vers (keys %{ $distributions{$label}->{codenames} }) {
                 if($version =~ /^$vers\b/) {

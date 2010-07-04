@@ -33,7 +33,6 @@ sub get_info {
 
     for my $cmd (keys %commands) {
         $self->{cmds}{$cmd} = `$commands{$cmd} 2>/dev/null`;
-        $self->{info}{source} .= "$commands{$cmd}\n$self->{cmds}{$cmd}\n";
         $self->{cmds}{$cmd} =~ s/\s+$//s;
         $self->{info}{$cmd} = $self->{cmds}{$cmd}   if($cmd =~ /^[^_]/);
     }
@@ -51,6 +50,7 @@ sub get_info {
     # Question: Anyone know how to get the real version number for OpenSolaris?
     # i.e. "2008.05" or "2009.06"
 
+    $self->{info}{source}{$commands{$_}} = $self->{cmds}{$_}    for(keys %commands);
     return $self->{info};
 }
 
