@@ -38,6 +38,7 @@ sub get_info {
     }
 
     $self->{info}{osflag}   = $^O;
+    $self->{info}{kvers}    = lc $self->{info}{kvers};
     $self->{info}{kernel}   = lc($self->{info}{kname}) . '-' . $self->{info}{kvers};
     $self->{info}{osname}   = $self->{info}{kname};
     $self->{info}{oslabel}  = $self->{info}{kname};
