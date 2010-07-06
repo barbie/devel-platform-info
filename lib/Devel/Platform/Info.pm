@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.04';
 
 #----------------------------------------------------------------------------
 
@@ -24,12 +24,12 @@ my %map = (
     'svr4'      => 'Linux',
     'unicos'    => 'Linux',
     'unicosmk'  => 'Linux',
-    'solaris'   => 'Linux',
     'sunos'     => 'Linux',
     'ultrix'    => 'Linux',
     'sco_sv'    => 'SCO',
     'sco3'      => 'SCO',
     'sco'       => 'SCO',
+    'solaris'   => 'Solaris',
 
     # Windows family OSes
     'dos'       => 'Win32',
@@ -150,6 +150,12 @@ Further keys maybe available to provide additional information if applicable
 to the specific operating system.
 
 =back
+
+=head1 REFERENCES
+
+The following links were used to understand how to retrieve the metadata:
+
+  * http://alma.ch/perl/perloses.htm
 
 =head1 BUGS, PATCHES & FIXES
 

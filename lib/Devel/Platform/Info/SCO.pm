@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.04';
 
 #----------------------------------------------------------------------------
 
@@ -48,21 +48,22 @@ sub get_info {
     my $self  = shift;
 
     for my $cmd (keys %commands) {
-        $self->{info}{$cmd} = `$commands{$cmd}`;
-        $self->{info}{source} .= "$commands{$cmd}\n$self->{info}{$cmd}\n";
-        $self->{info}{$cmd} =~ s/\s+$//s;
+        $self->{cmds}{$cmd} = `$commands{$cmd} 2>/dev/null`;
+        $self->{cmds}{$cmd} =~ s/\s+$//s;
+        $self->{info}{$cmd} = $self->{cmds}{$cmd}   if($cmd =~ /^[^_]/);
     }
 
     $self->{info}{osflag}       = $^O;
     $self->{info}{osname}       = 'SCO';
     $self->{info}{kernel}       = lc($self->{info}{kname}) . '-' . $self->{info}{kvers};
-    ($self->{info}{osvers})     = $self->{info}{'_lsb'} =~ /Release\s*=\s*(.*?)\n/s;
+    ($self->{info}{osvers})     = $self->{cmds}{'_lsb'} =~ /Release\s*=\s*(.*?)\n/s;
     ($self->{info}{oslabel})    = $releases{ $self->{info}{osvers} }->{oslabel};
     ($self->{info}{codename})   = $releases{ $self->{info}{osvers} }->{codename};
 
     $self->{info}{is32bit}      = $self->{info}{archname} !~ /_(64)$/ ? 1 : 0;
     $self->{info}{is64bit}      = $self->{info}{archname} =~ /_(64)$/ ? 1 : 0;
 
+    $self->{info}{source}{$commands{$_}} = $self->{cmds}{$_}    for(keys %commands);
     return $self->{info};
 }
 
