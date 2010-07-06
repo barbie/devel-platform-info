@@ -21,6 +21,7 @@ sub new {
 sub get_info {
     my $self = shift;
     $self->{info}{osname} = 'Mac';
+    $self->{info}{osflag}       = $^O;
     
     my $uname_s = $self->_command('uname -s');
     if ($uname_s =~ /Darwin/i) {
