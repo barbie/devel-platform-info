@@ -13,8 +13,18 @@ diag("OS: $^O");
 
 if($data) {
     diag('.. source => ');
-    diag("   .. $_ => " . (defined $data->{source}{$_} ? $data->{source}{$_} : ''))   for(sort keys %{$data->{source}});
+    diag("   .. $_ => " . (defined $data->{source}{$_} ? display_key($data->{source}{$_}) : ''))   for(sort keys %{$data->{source}});
 
     diag(".. $_ => " . (defined $data->{$_} ? $data->{$_} : ''))   for(grep {!/source/} keys %$data);
 }
 
+sub display_key
+{
+	my $value = shift;
+
+	if(ref $value eq 'ARRAY')
+	{
+		return join ', ', @$value;
+	}
+	return $value;
+}
