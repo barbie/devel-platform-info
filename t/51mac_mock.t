@@ -24,5 +24,5 @@ is($info->{is32bit}, 1);
 is($info->{is64bit}, 0);
 is($info->{kernel}, 'Darwin 1');
 
-use Data::Dumper;
-print Dumper($info);
+# use Data::Dumper;
+# print Dumper($info);
