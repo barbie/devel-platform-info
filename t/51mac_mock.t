@@ -7,12 +7,17 @@ use Devel::Platform::Info::Mac;
 eval "use Test::MockObject::Extends";
 plan skip_all => "Test::MockObject::Extends required for these tests" if $@;
 
-plan tests => 9*3;
+plan tests => 29;
 
 my $macInfo = Devel::Platform::Info::Mac->new();
 my $mock = Test::MockObject::Extends->new($macInfo);
-$mock->set_series('_command', 'Darwin', '10.3', 'PPC', 'Darwin 1', 'uname -a');
+$mock->set_series('_command', '', '', '', '', '');
 my $info = $macInfo->get_info();
+is($info->{osname}, 'Mac');
+is($info->{osflag}, $^O);
+
+$mock->set_series('_command', 'Darwin', '10.3', 'PPC', 'Darwin 1', 'uname -a');
+$info = $macInfo->get_info();
 
 is($info->{osname}, 'Mac');
 is($info->{osflag}, $^O);

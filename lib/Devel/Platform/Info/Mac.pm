@@ -28,12 +28,12 @@ sub get_info {
         $self->{info}{oslabel} = 'OS X';
         
         my $productversion = $self->_command('sw_vers -productVersion');
-        if ($productversion =~ /(\d+)\.(\d+)\.(\d+)/) {
-            my ($major, $minor, $release) = ($1, $2, $3);
+        if ($productversion =~ /((\d+)\.(\d+)(\.(\d+))?)/) {
+            my ($version, $major, $minor) = ($1, $2, $3);
             my $versions = _macos_versions();
             if (my $codename = $versions->{"$major.$minor"}) {
                 $self->{info}{codename} = $codename;
-                $self->{info}{osvers}  = "$major.$minor.$release";
+                $self->{info}{osvers}  = $version;
             }
         }
     }
