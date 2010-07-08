@@ -18,7 +18,7 @@ BEGIN
 SKIP: {
 
     eval "use 5.010_000";
-    skip('These tests only work on Perl 5.10 and higher', 4) if $@;
+    skip('These tests only work on Perl 5.10 and higher', 12) if $@;
     use Devel::Platform::Info::Mac;
 
     my $info = Devel::Platform::Info::Mac->new();
