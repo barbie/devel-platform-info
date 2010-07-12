@@ -15,6 +15,8 @@ META.yml
 README
 t/01base.t
 t/02diag.t
+t/50mac_test.t
+t/51mac_mock.t
 t/55win32_agnostic.t
 t/56win32.t
 t/90podtest.t

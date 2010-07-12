@@ -1,10 +1,15 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.05	12/07/2010
+        - updated Mac version check (Colin Newell).
+        - added Mac tests (Colin Newell).
+        - updated diag reference test (Colin Newell).
+
 0.04	04/07/2010
-	- fixed Solaris internal references.
-	- fixed BSD kernel version formatting.
-	- changed 'source' to be a hash not a string. (Colin's suggestion).
+        - fixed Solaris internal references.
+        - fixed BSD kernel version formatting.
+        - changed 'source' to be a hash not a string. (Colin's suggestion).
 
 0.03    02/07/2010
         - added support for more known Linux distributions.
