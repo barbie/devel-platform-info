@@ -43,8 +43,12 @@ sub get_info {
     $self->{info}{oslabel}  = $self->{info}{kname};
     $self->{info}{osvers}   = $self->{info}{kvers};
     $self->{info}{osvers}   =~ s/-release.*//;
-    $self->{info}{is32bit}  = $self->{info}{kname} !~ /64/ ? 1 : 0;
-    $self->{info}{is64bit}  = $self->{info}{kname} =~ /64/ ? 1 : 0;
+    $self->{info}{is32bit}  = $self->{info}{archname} !~ /(64|alpha)/ ? 1 : 0;
+    $self->{info}{is64bit}  = $self->{info}{archname} =~ /(64|alpha)/ ? 1 : 0;
+
+    # NOTE: 'sparc64' (64bit) and 'sparc' (32bit) both look like they identify 
+    # themselves as archname = 'sparc'. If true, is there any other way to
+    # easily distinguish the difference?
 
     $self->{info}{source}{$commands{$_}} = $self->{cmds}{$_}    for(keys %commands);
     return $self->{info};
