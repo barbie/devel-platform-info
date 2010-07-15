@@ -118,6 +118,9 @@ Returns the following keys:
 The following links were used to understand how to retrieve the metadata:
 
   * http://nixcraft.com/all-about-freebsd-openbsd-netbsd/234-freebsd-how-find-out-kernel-version.html
+  * http://www.netbsd.org/ports/
+
+Thanks to Chris 'BINGOS' Williams for the pointers to the appropriate links.
 
 =head1 BUGS, PATCHES & FIXES
 
