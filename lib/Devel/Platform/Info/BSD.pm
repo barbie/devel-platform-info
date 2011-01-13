@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 #----------------------------------------------------------------------------
 
@@ -43,8 +43,12 @@ sub get_info {
     $self->{info}{oslabel}  = $self->{info}{kname};
     $self->{info}{osvers}   = $self->{info}{kvers};
     $self->{info}{osvers}   =~ s/-release.*//;
-    $self->{info}{is32bit}  = $self->{info}{kname} !~ /64/ ? 1 : 0;
-    $self->{info}{is64bit}  = $self->{info}{kname} =~ /64/ ? 1 : 0;
+    $self->{info}{is32bit}  = $self->{info}{archname} !~ /(64|alpha)/ ? 1 : 0;
+    $self->{info}{is64bit}  = $self->{info}{archname} =~ /(64|alpha)/ ? 1 : 0;
+
+    # NOTE: 'sparc64' (64bit) and 'sparc' (32bit) both look like they identify
+    # themselves as archname = 'sparc'. If true, is there any other way to
+    # easily distinguish the difference?
 
     $self->{info}{source}{$commands{$_}} = $self->{cmds}{$_}    for(keys %commands);
     return $self->{info};
@@ -69,7 +73,7 @@ Devel::Platform::Info::BSD - Retrieve BSD platform metadata
 =head1 DESCRIPTION
 
 This module is a driver to determine platform metadata regarding the BSD
-operating system. It should be called indirectly via it's parent 
+family of operating systems. It should be called indirectly via it's parent
 Devel::Platform::Info
 
 =head1 INTERFACE
@@ -114,6 +118,9 @@ Returns the following keys:
 The following links were used to understand how to retrieve the metadata:
 
   * http://nixcraft.com/all-about-freebsd-openbsd-netbsd/234-freebsd-how-find-out-kernel-version.html
+  * http://www.netbsd.org/ports/
+
+Thanks to Chris 'BINGOS' Williams for the pointers to the appropriate links.
 
 =head1 BUGS, PATCHES & FIXES
 
@@ -132,7 +139,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010 Birmingham Perl Mongers
+  Copyright (C) 2010-2011 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 #-------------------------------------------------------------------------------
 
@@ -22,11 +22,11 @@ sub get_info {
     my $self = shift;
     $self->{info}{osname} = 'Mac';
     $self->{info}{osflag}       = $^O;
-    
+
     my $uname_s = $self->_command('uname -s');
     if ($uname_s =~ /Darwin/i) {
         $self->{info}{oslabel} = 'OS X';
-        
+
         my $productversion = $self->_command('sw_vers -productVersion');
         if ($productversion =~ /((\d+)\.(\d+)(\.(\d+))?)/) {
             my ($version, $major, $minor) = ($1, $2, $3);
@@ -37,21 +37,21 @@ sub get_info {
             }
         }
     }
-    
+
     if (my $arch = $self->_command('uname -p')) {
         chomp $arch;
         $self->{info}{archname} = $arch;
         $self->{info}{is32bit}  = $arch !~ /_(64)$/ ? 1 : 0;
         $self->{info}{is64bit}  = $arch =~ /_(64)$/ ? 1 : 0;
     }
-    
+
     if (my $unamev = $self->_command('uname -v')) {
         chomp $unamev;
         $self->{info}{kernel} = $unamev;
     }
-    
+
     $self->_command('uname -a');
-    
+
     return $self->{info};
 }
 
@@ -62,11 +62,11 @@ sub _command {
     my $self    = shift;
     my $command = shift;
     my $result  = `$command`;
-    
-    $self->{info}{source}{$command} = $result;    
-    
+
+    $self->{info}{source}{$command} = $result;
+
     chomp $result;
-    return $result;  
+    return $result;
 }
 
 #-------------------------------------------------------------------------------
@@ -80,6 +80,7 @@ sub _macos_versions {
         '10.4' => 'Tiger',
         '10.5' => 'Leopard',
         '10.6' => 'Snow Leopard',
+        '10.7' => 'Lion',
     };
 }
 
@@ -102,7 +103,7 @@ Devel::Platform::Info::Mac - Retrieve Mac platform metadata
 =head1 DESCRIPTION
 
 This module is a driver to determine platform metadata regarding the Mac
-operating system. It should be called indirectly via it's parent 
+operating system. It should be called indirectly via it's parent
 Devel::Platform::Info
 
 =head1 INTERFACE
@@ -156,7 +157,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010 Birmingham Perl Mongers
+  Copyright (C) 2010-2011 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.

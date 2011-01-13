@@ -1,9 +1,15 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
-0.06	14/07/2010
+0.07	13/01/2011
+        - updated several distribution codenames (Linux & Mac).
+        - documentation update.
+
+0.06	15/07/2010
         - added requirement for Test-JSON-Meta-0.08 due to issues with old
           versions of JSON not implementing the current API.
+	    - better 32/64 detection for BSD (thanks to Chris Williams for help)
+	    - upped version check of Test-JSON-Meta to ensure we have JSON v2.
 
 0.05	12/07/2010
         - updated Mac version check (Colin Newell).

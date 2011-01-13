@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 #----------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ This module is a wrapper to the drivers which can determine platform metadata
 regarding the currently running operating system.
 
 The intention of this distribution is to provide key identifying components
-regarding the platform currently being used, for the CPAN Testers test 
+regarding the platform currently being used, for the CPAN Testers test
 reports. Currently the reports do not often contain enough information to help
 authors understand specific failures, where the platform may be a factor.
 
@@ -143,10 +143,10 @@ Returns at least the following keys:
   is64bit
   osflag
 
-Note that the 'source' key returns the commands and output used to obtain the 
+Note that the 'source' key returns the commands and output used to obtain the
 metadata for possible future use.
 
-Further keys maybe available to provide additional information if applicable
+Further keys may be available to provide additional information if applicable
 to the specific operating system.
 
 =back
@@ -174,7 +174,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010 Birmingham Perl Mongers
+  Copyright (C) 2010-2011 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.

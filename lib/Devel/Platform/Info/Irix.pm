@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 #----------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ Devel::Platform::Info::Irix - Retrieve Irix platform metadata
 =head1 DESCRIPTION
 
 This module is a driver to determine platform metadata regarding the Irix
-operating system. It should be called indirectly via it's parent 
+operating system. It should be called indirectly via it's parent
 Devel::Platform::Info
 
 =head1 INTERFACE
@@ -133,7 +133,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010 Birmingham Perl Mongers
+  Copyright (C) 2010-2011 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.
