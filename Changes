@@ -2,7 +2,7 @@ Revision history for Perl library Devel-Platform-Info
 =====================================================
 
 0.08    01/04/2011
-        - added Scientific Linux distro.
+        - added Scientific Linux distro (as suggested by Norbert Gruener).
 
 0.07	13/01/2011
         - updated several distribution codenames (Linux & Mac).
