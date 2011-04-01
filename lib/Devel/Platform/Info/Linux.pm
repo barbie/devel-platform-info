@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 #----------------------------------------------------------------------------
 
@@ -117,7 +117,35 @@ my %ubuntu = (
     '10.10'     => 'Maverick Meerkat',
     '11.04'     => 'Natty Narwhal',
 );
-             
+
+my %scientific = (
+    '3.0.1'     => 'Feynman',
+    '3.0.2'     => 'Feynman',
+    '3.0.3'     => 'Feynman',
+    '3.0.4'     => 'Feynman',
+    '3.0.5'     => 'Feynman',
+    '3.0.6'     => 'Feynman',
+    '3.0.7'     => 'Feynman',
+    '3.0.8'     => 'Feynman',
+    '3.0.9'     => 'Legacy',
+    '4.0'       => 'Beryllium',
+    '4.1'       => 'Beryllium',
+    '4.2'       => 'Beryllium',
+    '4.3'       => 'Beryllium',
+    '4.4'       => 'Beryllium',
+    '4.5'       => 'Beryllium',
+    '4.6'       => 'Beryllium',
+    '4.7'       => 'Beryllium',
+    '4.8'       => 'Beryllium',
+    '5.0'       => 'Boron',
+    '5.1'       => 'Boron',
+    '5.2'       => 'Boron',
+    '5.3'       => 'Boron',
+    '5.4'       => 'Boron',
+    '5.5'       => 'Boron',
+    '6.0'       => 'Carbon',
+);
+
 my %distributions = (
     'Adamantix'             => { codenames => \%default,                        files => [ qw( /etc/adamantix_version ) ] },
     'Annvix'                => { codenames => \%default,                        files => [ qw( /etc/annvix-release ) ] },
@@ -144,6 +172,7 @@ my %distributions = (
     'PLD Linux'             => { codenames => \%default,                        files => [ qw( /etc/pld-release ) ] },
     'Red Flag'              => { codenames => \%default,    key => 'redflag',   files => [ qw( /etc/redflag-release ) ] },
     'Red Hat'               => { codenames => \%default,    key => 'redhat',    files => [ qw( /etc/redhat-release /etc/redhat_version ) ] },
+    'Scientific Linux'      => { codenames => \%scientific,                     files => [ qw( /etc/lsb-release ) ] },
     'Slackware'             => { codenames => \%default,    key => 'slackware', files => [ qw( /etc/slackware-version /etc/slackware-release ) ] },
     'SME Server'            => { codenames => \%default,                        files => [ qw( /etc/e-smith-release ) ] },
     'Sun JDS'               => { codenames => \%default,                        files => [ qw( /etc/sun-release ) ] },
