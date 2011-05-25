@@ -62,10 +62,10 @@ sub _command {
     my $self    = shift;
     my $command = shift;
     my $result  = `$command`;
+    chomp $result;
 
     $self->{info}{source}{$command} = $result;
 
-    chomp $result;
     return $result;
 }
 
