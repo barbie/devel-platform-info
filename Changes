@@ -1,6 +1,9 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.09    25/05/2011
+        - remove trailing newlines from Mac command results (JJ)
+
 0.08    01/04/2011
         - added Scientific Linux distro (as suggested by Norbert Gruener).
 
