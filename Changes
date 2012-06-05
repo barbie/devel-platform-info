@@ -2,8 +2,11 @@ Revision history for Perl library Devel-Platform-Info
 =====================================================
 
 0.10    current
-	- updated BSD derivative list.
-	- fixed OpenSolaris/Solaris oslabel/osvers elements.
+        - updated BSD derivative list.
+        - fixed OpenSolaris/Solaris oslabel/osvers elements.
+        - added Red Hat Enterprise Linux & Red Hat Linux codenames.
+        - added CrunchBang Linux codenames.
+        - updated versions and codenames.
 
 0.09    25/05/2011
         - remove trailing newlines from Mac command results (JJ)
@@ -11,22 +14,22 @@ Revision history for Perl library Devel-Platform-Info
 0.08    01/04/2011
         - added Scientific Linux distro (as suggested by Norbert Gruener).
 
-0.07	13/01/2011
+0.07    13/01/2011
         - updated several distribution codenames (Linux & Mac).
         - documentation update.
 
-0.06	15/07/2010
+0.06    15/07/2010
         - added requirement for Test-JSON-Meta-0.08 due to issues with old
           versions of JSON not implementing the current API.
-	    - better 32/64 detection for BSD (thanks to Chris Williams for help)
-	    - upped version check of Test-JSON-Meta to ensure we have JSON v2.
+            - better 32/64 detection for BSD (thanks to Chris Williams for help)
+            - upped version check of Test-JSON-Meta to ensure we have JSON v2.
 
-0.05	12/07/2010
+0.05    12/07/2010
         - updated Mac version check (Colin Newell).
         - added Mac tests (Colin Newell).
         - updated diag reference test (Colin Newell).
 
-0.04	04/07/2010
+0.04    04/07/2010
         - fixed Solaris internal references.
         - fixed BSD kernel version formatting.
         - changed 'source' to be a hash not a string. (Colin's suggestion).
