@@ -1,14 +1,22 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.006;
+
 use ExtUtils::MakeMaker;
+
 WriteMakefile(
-    'NAME'          => 'Devel::Platform::Info',
-    'VERSION_FROM'  => 'lib/Devel/Platform/Info.pm',
-    'PREREQ_PM'     => {
-        'Test::More'    => 0,   # only for testing
-    },
+    AUTHOR              => 'Barbie <barbie@cpan.org>',
+    NAME                => 'Devel::Platform::Info',
+    VERSION_FROM        => 'lib/Devel/Platform/Info.pm',
+    ABSTRACT            => 'Unified framework for obtaining common platform metadata',
+    NO_META             => 1,
+    PREREQ_PM           => {
 
-    NO_META         => 1,
+        # build/test prereqs
+        'Test::More'                    => '0.70',
+        'IO::File'                      => '0'
 
-    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (ABSTRACT => 'Unified framework for obtaining common platform metadata',
-       AUTHOR   => 'Barbie <barbie@cpan.org>') : ()),
+    }
 );

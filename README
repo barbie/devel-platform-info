@@ -1,7 +1,3 @@
-Devel::Platform::Info                                 Devel::Platform::Info(3)
-
-
-
 NAME
        Devel::Platform::Info - Unified framework for obtaining common platform
        metadata
@@ -76,11 +72,7 @@ AUTHORS
          Jon 'JJ' Allen (JONALLEN) <jj@jonallen.info>
 
 COPYRIGHT & LICENSE
-         Copyright (C) 2010-2011 Birmingham Perl Mongers
+         Copyright (C) 2010-2012 Birmingham Perl Mongers
 
          This module is free software; you can redistribute it and/or
          modify it under the Artistic License 2.0.
-
-
-
-perl v5.8.8                       2011-01-13          Devel::Platform::Info(3)

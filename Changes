@@ -7,6 +7,10 @@ Revision history for Perl library Devel-Platform-Info
         - added Red Hat Enterprise Linux & Red Hat Linux codenames.
         - added CrunchBang Linux codenames.
         - updated versions and codenames.
+        - META tests no longer require specific versions.
+        - added minimum perl version (5.006).
+        - reworked Makefile.PL for clarity.
+        - Test-JSON-Meta => Test-CPAN-Meta-JSON.
 
 0.09    25/05/2011
         - remove trailing newlines from Mac command results (JJ)
