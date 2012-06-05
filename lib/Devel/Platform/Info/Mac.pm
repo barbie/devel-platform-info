@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 #-------------------------------------------------------------------------------
 
@@ -81,6 +81,7 @@ sub _macos_versions {
         '10.5' => 'Leopard',
         '10.6' => 'Snow Leopard',
         '10.7' => 'Lion',
+        '10.8' => 'Mountain Lion',
     };
 }
 
@@ -157,7 +158,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010-2011 Birmingham Perl Mongers
+  Copyright (C) 2010-2012 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.
