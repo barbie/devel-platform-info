@@ -1,6 +1,9 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.10    current
+	- updated BSD derivative list.
+
 0.09    25/05/2011
         - remove trailing newlines from Mac command results (JJ)
 

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 #----------------------------------------------------------------------------
 
@@ -13,7 +13,11 @@ my %map = (
     'freebsd'   => 'BSD',
     'openbsd'   => 'BSD',
     'netbsd'    => 'BSD',
+    'mirbsd'    => 'BSD',
+    'dragonfly' => 'BSD',
+    
     'irix'      => 'Irix',
+    
     'linux'     => 'Linux',
     'aix'       => 'Linux',
     'bsdos'     => 'Linux',
@@ -26,9 +30,11 @@ my %map = (
     'unicosmk'  => 'Linux',
     'sunos'     => 'Linux',
     'ultrix'    => 'Linux',
+    
     'sco_sv'    => 'SCO',
     'sco3'      => 'SCO',
     'sco'       => 'SCO',
+
     'solaris'   => 'Solaris',
 
     # Windows family OSes
@@ -174,7 +180,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010-2011 Birmingham Perl Mongers
+  Copyright (C) 2010-2012 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.
