@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 #----------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ sub get_info {
     for my $cmd (keys %commands) {
         $self->{cmds}{$cmd} = `$commands{$cmd} 2>/dev/null`;
         $self->{cmds}{$cmd} =~ s/\s+$//s;
-        $self->{info}{$cmd} = $self->{cmds}{$cmd}   if($cmd =~ /^[^_]/);
+        $self->{info}{$cmd} = $self->{cmds}{$cmd}   if($cmd !~ /^_/);
     }
 
     $self->{info}{osflag}   = $^O;
@@ -42,10 +42,15 @@ sub get_info {
     $self->{info}{is32bit}  = $self->{cmds}{_isainfo} !~ /64-bit/s ? 1 : 0;
     $self->{info}{is64bit}  = $self->{cmds}{_isainfo} =~ /64-bit/s ? 1 : 0;
 
-    ($self->{info}{osname}) = $self->{cmds}{_release} =~ /^(\S+)/;
+    ($self->{info}{osname}) = $self->{cmds}{_release} =~ /((?:Open)?Solaris|SunOS)/is;
     $self->{info}{oslabel}  = $self->{info}{osname};
-    $self->{info}{osvers} = $self->{info}{kname};
-    $self->{info}{osvers} =~ s/^5/2/;   # a bit of a hack :(
+    $self->{info}{osvers}   = $self->{info}{kvers};
+
+    # Solaris versions are based on SunOS, but just slightly different!
+    if($self->{info}{osname} =~ /Solaris/) {
+        $self->{info}{osvers} =~ s/^5\.([0123456]\b)/2.$1/;
+        $self->{info}{osvers} =~ s/^5\.(\d+)/$1/;
+    }
 
     # Question: Anyone know how to get the real version number for OpenSolaris?
     # i.e. "2008.05" or "2009.06"
@@ -138,7 +143,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2010-2011 Birmingham Perl Mongers
+  Copyright (C) 2010-2012 Birmingham Perl Mongers
 
   This module is free software; you can redistribute it and/or
   modify it under the Artistic License 2.0.
