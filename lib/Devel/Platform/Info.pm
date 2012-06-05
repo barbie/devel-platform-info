@@ -28,7 +28,6 @@ my %map = (
     'svr4'      => 'Linux',
     'unicos'    => 'Linux',
     'unicosmk'  => 'Linux',
-    'sunos'     => 'Linux',
     'ultrix'    => 'Linux',
     
     'sco_sv'    => 'SCO',
@@ -36,6 +35,7 @@ my %map = (
     'sco'       => 'SCO',
 
     'solaris'   => 'Solaris',
+    'sunos'     => 'Solaris',
 
     # Windows family OSes
     'dos'       => 'Win32',
