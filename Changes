@@ -6,6 +6,7 @@ Revision history for Perl library Devel-Platform-Info
         - added Test::MockObject::Extends prerequisite.
         - added Colin's PAUSE id.
         - change file dates changed to meet W3CDTF standards.
+        - implemented Perl::Critic suggestions.
 
 0.10    2012-06-05
         - updated BSD derivative list.
