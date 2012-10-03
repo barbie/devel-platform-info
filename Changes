@@ -1,12 +1,13 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
-0.11	current
-	- fixed require
-	- added Test::MockObject::Extends prerequisite.
-	- added Colin's PAUSE id.
+0.11    2012-10-03
+        - fixed require
+        - added Test::MockObject::Extends prerequisite.
+        - added Colin's PAUSE id.
+        - change file dates changed to meet W3CDTF standards.
 
-0.10    05/06/2012
+0.10    2012-06-05
         - updated BSD derivative list.
         - fixed OpenSolaris/Solaris oslabel/osvers elements.
         - added Red Hat Enterprise Linux & Red Hat Linux codenames.
@@ -17,41 +18,41 @@ Revision history for Perl library Devel-Platform-Info
         - reworked Makefile.PL for clarity.
         - Test-JSON-Meta => Test-CPAN-Meta-JSON.
 
-0.09    25/05/2011
+0.09    2011-05-25
         - remove trailing newlines from Mac command results (JJ)
 
-0.08    01/04/2011
+0.08    2011-04-01
         - added Scientific Linux distro (as suggested by Norbert Gruener).
 
-0.07    13/01/2011
+0.07    2011-01-13
         - updated several distribution codenames (Linux & Mac).
         - documentation update.
 
-0.06    15/07/2010
+0.06    2010-07-15
         - added requirement for Test-JSON-Meta-0.08 due to issues with old
           versions of JSON not implementing the current API.
             - better 32/64 detection for BSD (thanks to Chris Williams for help)
             - upped version check of Test-JSON-Meta to ensure we have JSON v2.
 
-0.05    12/07/2010
+0.05    2010-07-12
         - updated Mac version check (Colin Newell).
         - added Mac tests (Colin Newell).
         - updated diag reference test (Colin Newell).
 
-0.04    04/07/2010
+0.04    2010-07-04
         - fixed Solaris internal references.
         - fixed BSD kernel version formatting.
         - changed 'source' to be a hash not a string. (Colin's suggestion).
 
-0.03    02/07/2010
+0.03    2010-07-02
         - added support for more known Linux distributions.
         - better pattern matching for osvers and oslabel in Linux.pm
         - added reference links.
         - reimplemented use tests for plugins.
         - added specific support plugin for Solaris family.
 
-0.02    01/07/2010
+0.02    2010-07-01
         - added support for Irix and the BSD family.
 
-0.01    30/06/2010
+0.01    2010-06-30
         - initial release.
