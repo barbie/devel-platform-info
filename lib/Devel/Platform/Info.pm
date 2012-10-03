@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 #----------------------------------------------------------------------------
 
@@ -78,11 +78,11 @@ sub get_info {
     my $plugin = $map{ lc $^O } || 'Linux';
 
     my $driver = 'Devel::Platform::Info::' . $plugin;
-    my $require = $driver;
+    my $require = "$driver.pm";
     $require =~ s!::!/!g;
 
     eval {
-        require "$require.pm";
+        require $require;
         $self->{driver} = $driver->new();
         $data = $self->{driver}->get_info();
     };
@@ -175,7 +175,7 @@ RT Queue: http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Platform-Info
 
   Barbie (BARBIE) <barbie@cpan.org>
   Brian McCauley (NOBULL) <nobull67@gmail.com>
-  Colin Newell http://colinnewell.wordpress.com/
+  Colin Newell (NEWELL) <newellc@cpan.org>
   Jon 'JJ' Allen (JONALLEN) <jj@jonallen.info>
 
 =head1 COPYRIGHT & LICENSE

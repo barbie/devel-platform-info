@@ -1,6 +1,11 @@
 Revision history for Perl library Devel-Platform-Info
 =====================================================
 
+0.11	current
+	- fixed require
+	- added Test::MockObject::Extends prerequisite.
+	- added Colin's PAUSE id.
+
 0.10    05/06/2012
         - updated BSD derivative list.
         - fixed OpenSolaris/Solaris oslabel/osvers elements.
