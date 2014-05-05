@@ -8,7 +8,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     AUTHOR              => 'Barbie <barbie@cpan.org>',
-    NAME                => 'Devel::Platform::Info',
+    NAME                => 'Devel-Platform-Info',
     VERSION_FROM        => 'lib/Devel/Platform/Info.pm',
     ABSTRACT            => 'Unified framework for obtaining common platform metadata',
     NO_META             => 1,
