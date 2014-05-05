@@ -8,6 +8,7 @@ lib/Devel/Platform/Info/Mac.pm
 lib/Devel/Platform/Info/SCO.pm
 lib/Devel/Platform/Info/Solaris.pm
 lib/Devel/Platform/Info/Win32.pm
+LICENSE
 Makefile.PL
 MANIFEST
 META.json
