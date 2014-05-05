@@ -87,7 +87,8 @@ sub get_info {
         $data = $self->{driver}->get_info();
     };
 
-    return  if($@);
+    $data->{error} = $@ if($@);
+
     return $data;
 }
 

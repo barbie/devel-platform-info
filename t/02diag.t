@@ -18,12 +18,10 @@ if($data) {
     diag(".. $_ => " . (defined $data->{$_} ? $data->{$_} : ''))   for(grep {!/source/} keys %$data);
 }
 
-sub display_key
-{
+sub display_key {
 	my $value = shift;
 
-	if(ref $value eq 'ARRAY')
-	{
+	if(ref $value eq 'ARRAY') {
 		return join ', ', @$value;
 	}
 	return $value;
