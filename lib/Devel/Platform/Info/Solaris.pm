@@ -42,7 +42,7 @@ sub get_info {
     $self->{info}{is32bit}  = $self->{cmds}{_isainfo} !~ /64-bit/s ? 1 : 0;
     $self->{info}{is64bit}  = $self->{cmds}{_isainfo} =~ /64-bit/s ? 1 : 0;
 
-    ($self->{info}{osname}) = $self->{cmds}{_release} =~ /((?:Open)?Solaris|SunOS)/is;
+    ($self->{info}{osname}) = $self->{cmds}{_release} =~ /((?:Open)?Solaris|SunOS|OpenIndiana)/is;
     $self->{info}{oslabel}  = $self->{info}{osname};
     $self->{info}{osvers}   = $self->{info}{kvers};
 
