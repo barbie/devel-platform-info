@@ -62,6 +62,9 @@ my %map = (
     'beos'          => 'Linux',
     'machten'       => 'Linux',
     'mpeix'         => 'Linux',
+    'bitrig'        => 'Linux',
+    'minix'         => 'Linux',
+    'nto'           => 'Linux',
 );
 
 #----------------------------------------------------------------------------

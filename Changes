@@ -4,6 +4,7 @@ Revision history for Devel-Platform-Info
         - parse out OpenIndiana variant of Solaris (thanks to Graham Ollis,
           sorry it got missed out of the last release).
         - added experimental support for BeOS.
+        - more Linux based OSes.
 
 0.12    2014-05-06
         - fixed distribution name in META.
