@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 #-------------------------------------------------------------------------------
 
@@ -82,6 +82,7 @@ sub _macos_versions {
         '10.6' => 'Snow Leopard',
         '10.7' => 'Lion',
         '10.8' => 'Mountain Lion',
+        '10.9' => 'Mavericks',
     };
 }
 
