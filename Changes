@@ -1,6 +1,7 @@
 Revision history for Devel-Platform-Info
 ========================================
 
+0.12    2014-05-06
         - fixed distribution name in META.
         - added LICENSE file.
         - in the event of error, return the message in the data returned.
