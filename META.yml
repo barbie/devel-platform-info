@@ -31,6 +31,9 @@ provides:
   Devel::Platform::Info:
     file:     lib/Devel/Platform/Info.pm
     version:  0.12
+  Devel::Platform::Info::BeOS:
+    file:     lib/Devel/Platform/Info/BeOS.pm
+    version:  0.12
   Devel::Platform::Info::BSD:
     file:     lib/Devel/Platform/Info/BSD.pm
     version:  0.12

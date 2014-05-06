@@ -1,6 +1,7 @@
 Changes
 examples/info.pl
 lib/Devel/Platform/Info.pm
+lib/Devel/Platform/Info/BeOS.pm
 lib/Devel/Platform/Info/BSD.pm
 lib/Devel/Platform/Info/Irix.pm
 lib/Devel/Platform/Info/Linux.pm

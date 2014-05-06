@@ -38,6 +38,8 @@ my %map = (
     'solaris'       => 'Solaris',
     'sunos'         => 'Solaris',
 
+    'beos'          => 'BeOS',
+
     # Windows family OSes
     'dos'           => 'Win32',
     'os2'           => 'Win32',
