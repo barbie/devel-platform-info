@@ -73,7 +73,13 @@ my %debian = (
     '5.0'       => 'lenny',
     '6.0'       => 'squeeze',
     '7.0'       => 'wheezy',
+    '8.0'       => 'jessie',
 );
+
+# Fedora naming scheme is no longer used:
+# https://lists.fedoraproject.org/pipermail/advisory-board/2013-October/012209.html
+# "The Fedora Board is terminating Release Names as they are currently
+# fashioned following Fedora 20."
 
 # http://en.wikipedia.org/wiki/Fedora_%28operating_system%29#Version_history
 my %fedora = (
@@ -95,6 +101,8 @@ my %fedora = (
     '16'        => 'Verne',
     '17'        => 'Beefy Miracle',
     '18'        => 'Spherical Cow',
+    '19'        => q[Schrödinger's Cat],
+    '20'        => 'Heisenbug',
 );
 
 # http://en.wikipedia.org/wiki/Mandriva_Linux#Versions
@@ -218,6 +226,10 @@ my %rhel = (
     '6'         => 'Santiago',
     '6.1'       => 'Santiago',
     '6.2'       => 'Santiago',
+    '6.3'       => 'Santiago',
+    '6.4'       => 'Santiago',
+    '6.5'       => 'Santiago',
+    '7'         => 'Maipo',
 );
 
 # https://www.scientificlinux.org/about/history.short
@@ -276,6 +288,10 @@ my %ubuntu = (
     '11.10'     => 'Oneiric Ocelot',
     '12.04'     => 'Precise Pangolin',
     '12.10'     => 'Quantal Quetzal',
+    '13.04'     => 'Raring Ringtail',
+    '13.10'     => 'Saucy Salamander',
+    '14.04'     => 'Trusty Tahr',
+    '15.10'     => 'Utopic Unicorn',
 );
 
 my %distributions = (
