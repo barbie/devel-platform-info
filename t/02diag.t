@@ -7,9 +7,14 @@ use Devel::Platform::Info;
 my $info = Devel::Platform::Info->new();
 my $data = $info->get_info();
 
-isnt($data,undef);
-
 diag("OS: $^O");
+
+if($data->{error}) {
+    diag('error returned: ' . $data->{error});
+    delete $data->{error};
+}
+
+isnt($data,undef);
 
 if($data) {
     diag('.. source => ');
