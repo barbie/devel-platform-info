@@ -1,6 +1,7 @@
 Revision history for Devel-Platform-Info
 ========================================
 
+0.14    2014-05-09
         - last two release missed updating DPI::Mac. #RT95491 (thanks to Kent 
           Fredric).
         - fixed META tests to catch version differences.
