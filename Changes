@@ -1,6 +1,10 @@
 Revision history for Devel-Platform-Info
 ========================================
 
+        - last two release missed updating DPI::Mac. #RT95491 (thanks to Kent 
+          Fredric).
+        - fixed META tests to catch version differences.
+
 0.13    2014-05-07
         - parse out OpenIndiana variant of Solaris (thanks to Graham Ollis,
           sorry it got missed out of the last release).
