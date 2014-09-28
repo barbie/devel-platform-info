@@ -232,7 +232,7 @@ my %rhel = (
     '7'         => 'Maipo',
 );
 
-# https://www.scientificlinux.org/about/history.short
+# http://en.wikipedia.org/wiki/Scientific_Linux
 my %scientific = (
     '3.0.1'     => 'Feynman',
     '3.0.2'     => 'Feynman',
@@ -291,7 +291,7 @@ my %ubuntu = (
     '13.04'     => 'Raring Ringtail',
     '13.10'     => 'Saucy Salamander',
     '14.04'     => 'Trusty Tahr',
-    '15.10'     => 'Utopic Unicorn',
+    '14.10'     => 'Utopic Unicorn',
 );
 
 my %distributions = (
