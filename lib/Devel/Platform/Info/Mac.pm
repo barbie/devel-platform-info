@@ -73,16 +73,17 @@ sub _command {
 
 sub _macos_versions {
     return {
-        '10.0' => 'Cheetah',
-        '10.1' => 'Puma',
-        '10.2' => 'Jaguar',
-        '10.3' => 'Panther',
-        '10.4' => 'Tiger',
-        '10.5' => 'Leopard',
-        '10.6' => 'Snow Leopard',
-        '10.7' => 'Lion',
-        '10.8' => 'Mountain Lion',
-        '10.9' => 'Mavericks',
+        '10.0'  => 'Cheetah',
+        '10.1'  => 'Puma',
+        '10.2'  => 'Jaguar',
+        '10.3'  => 'Panther',
+        '10.4'  => 'Tiger',
+        '10.5'  => 'Leopard',
+        '10.6'  => 'Snow Leopard',
+        '10.7'  => 'Lion',
+        '10.8'  => 'Mountain Lion',
+        '10.9'  => 'Mavericks',
+        '10.10' => 'Yosemite',
     };
 }
 
