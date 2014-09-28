@@ -23,7 +23,7 @@ is($meta->{version},$version,
 if($meta->{provides}) {
     for my $mod (keys %{$meta->{provides}}) {
         is($meta->{provides}{$mod}{version},$version,
-            "META.yml entry [$mod] version matches");
+            "META.yml entry [$mod] version matches distribution version");
 
         eval "require $mod";
         my $VERSION = '$' . $mod . '::VERSION';
