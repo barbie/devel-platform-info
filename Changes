@@ -1,6 +1,8 @@
 Revision history for Devel-Platform-Info
 ========================================
 
+        - fixed license fields in META.json to be lists.
+
 0.14    2014-05-09
         - last two release missed updating DPI::Mac. #RT95491 (thanks to Kent 
           Fredric).
