@@ -74,6 +74,8 @@ my %debian = (
     '6.0'       => 'squeeze',
     '7.0'       => 'wheezy',
     '8.0'       => 'jessie',
+    '9.0'       => 'stretch',
+    '10.0'      => 'buster',
 );
 
 # Fedora naming scheme is no longer used:
@@ -267,6 +269,17 @@ my %scientific = (
     '6.1'       => 'Carbon',
     '6.2'       => 'Carbon',
     '6.3'       => 'Carbon',
+    '6.4'       => 'Carbon',
+    '6.5'       => 'Carbon',
+    '6.6'       => 'Carbon',
+    '6.7'       => 'Carbon',
+    '6.8'       => 'Carbon',
+    '6.9'       => 'Carbon',
+    '6.10'      => 'Carbon',
+    '6.11'      => 'Carbon',
+    '7.0'       => 'Nitrogen',
+    '7.1'       => 'Nitrogen',
+    '7.2'       => 'Nitrogen',
 );
 
 # http://en.wikipedia.org/wiki/Ubuntu_%28operating_system%29#Releases
@@ -292,6 +305,9 @@ my %ubuntu = (
     '13.10'     => 'Saucy Salamander',
     '14.04'     => 'Trusty Tahr',
     '14.10'     => 'Utopic Unicorn',
+    '15.04'     => 'Vivid Vervet',
+    '15.10'     => 'Wily Werewolf',
+    '16.04'     => 'Xenial Xerus',
 );
 
 my %distributions = (

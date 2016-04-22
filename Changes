@@ -1,6 +1,8 @@
 Revision history for Devel-Platform-Info
 ========================================
 
+        - Codename updates for Linux & Mac OSX.
+
 0.15    2014-10-06
         - fixed license fields in META.json to be lists.
         - added latest Mac OS X release.

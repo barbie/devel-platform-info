@@ -84,6 +84,7 @@ sub _macos_versions {
         '10.8'  => 'Mountain Lion',
         '10.9'  => 'Mavericks',
         '10.10' => 'Yosemite',
+        '10.11' => 'El Capitan',
     };
 }
 
