@@ -20,7 +20,7 @@ matrix:
 
 before_install:
   - curl -L https://cpanmin.us | perl - App::cpanminus
-  - cpanm -n Devel::Cover::Report::Coveralls
+  - cpanm -n Devel::Cover Devel::Cover::Report::Coveralls
 
 script:
   perl Makefile.PL && make && cover -test -report coveralls
