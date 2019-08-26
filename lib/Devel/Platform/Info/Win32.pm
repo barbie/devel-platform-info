@@ -70,9 +70,8 @@ sub _InterpretWin32Info
 {
     my $self = shift;
     my @versionInfo = @_;
-    my ($string, $major, $minor, $build, $id, $spmajor, $spminor, $suitemask, $producttype, @extra)  = @versionInfo;
-    my ($osname, $oslabel, $version, $source);
-    my %info;
+    my ($string, $major, $minor, $build, $id, $spmajor, $spminor, $suitemask, $producttype, @extra) = @versionInfo;
+    my ($osname);
     my $NTWORKSTATION = 1;
     if($major == 5 && $minor == 2 && $producttype == $NTWORKSTATION)
     {
