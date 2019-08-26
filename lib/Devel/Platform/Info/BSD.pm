@@ -117,7 +117,7 @@ Returns the following keys:
 
 The following links were used to understand how to retrieve the metadata:
 
-  * http://nixcraft.com/all-about-freebsd-openbsd-netbsd/234-freebsd-how-find-out-kernel-version.html
+  * https://www.cyberciti.biz/faq/how-to-find-out-freebsd-version-and-patch-level-number/
   * http://www.netbsd.org/ports/
 
 Thanks to Chris 'BINGOS' Williams for the pointers to the appropriate links.
