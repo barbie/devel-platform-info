@@ -11,8 +11,13 @@ perl:
   - "5.26"
   - "5.28"
   - "5.30"
-os: linux
-dist: trusty
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: osx
+    - os: windows
 
 before_install:
   cpanm -n Devel::Cover::Report::Coveralls
