@@ -19,7 +19,7 @@ matrix:
     - os: osx
 
 before_install:
-  - cpan App::cpanminus
+  - curl -L https://cpanmin.us | perl - App::cpanminus
   - cpanm -n Devel::Cover::Report::Coveralls
 
 script:
