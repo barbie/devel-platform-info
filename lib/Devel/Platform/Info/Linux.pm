@@ -561,7 +561,7 @@ The following links were used to understand how to retrieve the metadata:
 
   * http://distrowatch.com/
   * Wikipedia pages for various Linux and Unix based OSes
-  * http://search.cpan.org/dist/Sys-Info-Driver-Linux
+  * https://metacpan.org/release/Sys-Info-Driver-Linux
 
 =head1 BUGS, PATCHES & FIXES
 
